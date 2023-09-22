@@ -4,6 +4,6 @@ import { Nav } from '../components/Index';
 
 export function Home() {
     return (
-  <Nav/>
+<h1> home here</h1>
   );
 }

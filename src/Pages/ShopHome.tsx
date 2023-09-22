@@ -1,10 +1,13 @@
-import './shopHome.css'
+import { EdibleCard } from "../components/Index"
+import edibles from "../data/API/edibles.json"
 
-type Props = {}
+export function ShopHome() {
+  return
+  <>
+    <h1> Shop</h1>
+    <ul className="Edibles">
+      {edibles.map(edible => (
 
-export function ShopHome()  {
-  return (
-    <div>ShopHome</div>
-  )
+        <li key={edible.id}> <EdibleCard{...edible}/></li>))}
+    </ul></>
 }
-

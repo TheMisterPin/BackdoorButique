@@ -1,5 +1,6 @@
 import './nav.css'
 import { NavLink } from 'react-router-dom'
+import { Cart } from '../cart/Cart';
 
 export function Nav() {
     return (
@@ -12,7 +13,7 @@ export function Nav() {
                     <NavLink to="/shop">Shop</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/form">Form</NavLink> </li>
+                    <NavLink to="/cart">Cart</NavLink> </li>
             </ul>
 
 

@@ -1,22 +1,28 @@
-import * as React from 'react';
+
 import './App.css'
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Home } from './Pages/Home';
 import { Cart, Nav, Shop } from './components/Index';
+import { CartProvider } from './context/ShoppingCartContext';
 
 
 
 
- function App()  {
+function App()  {
   return (
     <>
-    <Nav/>
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/shop" element={<Shop/>} />
-      <Route path="/cart" element={<Cart/>} />
+      <CartProvider>
+        <div className="App">
+     
+        <Nav/>
+        <Routes>
+          <Route path="/" element={ <Home/> } />
+          <Route path="/shop" element={ <Shop/> } />
+          <Route path="/cart" element={ <Cart isCartOpen={ false } /> } />
 
-    </Routes>
+        </Routes>  
+         </div>
+      </CartProvider>
     </>
   );
 }

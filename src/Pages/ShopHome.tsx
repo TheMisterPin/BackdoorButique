@@ -8,6 +8,6 @@ export function ShopHome() {
     <ul className="Edibles">
       {edibles.map(edible => (
 
-        <li key={edible.id}> <EdibleCard{...edible}/></li>))}
+        <li key={ edible.id }> <EdibleCard{ ...edible }/></li>))}
     </ul></>
 }

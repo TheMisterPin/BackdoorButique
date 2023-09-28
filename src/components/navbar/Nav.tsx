@@ -1,23 +1,24 @@
-import './nav.css'
-import { NavLink } from 'react-router-dom'
-import { Cart } from '../cart/Cart';
+
+import { ActionButtons } from './ActionButtons';
+import { NavWrapper, NavLinkWrapper, StyledNavLink } from './navbarStyles';
+
+
+
+
+
+
+
 
 export function Nav() {
-    return (
-        <div className='linkContainer'>
-            <ul>
-                <li>
-                    <NavLink to="/">Home</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/shop">Shop</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/cart">Cart</NavLink> </li>
-            </ul>
-
-
-
-        </div>
-    )
+  return (
+    <>
+    <NavWrapper className='linkContainer'>
+      <NavLinkWrapper>       
+          <StyledNavLink  to="/">Home</StyledNavLink >  
+          <StyledNavLink  to="/shop">Shop</StyledNavLink >                  
+      </NavLinkWrapper>
+      <ActionButtons/>
+    </NavWrapper>
+    </>
+  )
 }

@@ -1,5 +1,5 @@
 const currencyHandler = new Intl.NumberFormat(undefined, {
-  currency: "USD", 
+  currency: "EUR", 
   style: "currency"
 })
 

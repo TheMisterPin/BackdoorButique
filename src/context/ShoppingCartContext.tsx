@@ -18,7 +18,7 @@ cartItems: CartItem[]
 export type CartItem = {
     id:string
     quantity: number
-}
+  }
 /// ////////////////// STATES ////////////////////
 const CartContext = createContext({} as CartContext)
 
@@ -31,8 +31,7 @@ export function useCart(){
 /// ////////////////// EXPORT THE CONTEXT  //////////////////
 export function CartProvider ({children}: CartProviderProps ){
 /// ////////////////// STATES////////////////////////////////
-  const [isCartOpen, setIsCartOpen] = useState(false)
-    
+  const [isCartOpen, setIsCartOpen] = useState(false)    
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
 
@@ -88,13 +87,11 @@ export function CartProvider ({children}: CartProviderProps ){
   }
 
   return(
-    <CartContext.Provider value={ {getItemQuantity, 
-         
-         
+    <CartContext.Provider value={
+      {getItemQuantity, 
       increaseCartItemQuantity, 
       decreaseCartItemQuantity, 
-      removeCartItem,
-         
+      removeCartItem,     
          
          
       cartItems,

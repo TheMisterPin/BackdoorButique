@@ -18,10 +18,6 @@ export function Cart({isCartOpen}:CartProps) {
         <button onClick={ closeCart }>Close</button>
         <h1>your cart</h1>
         <ul>
-
-
-
-
           {cartItems.map((item)=>(
             <CartItem key={ item.id } { ...item }/>))}
         </ul>

@@ -15,7 +15,9 @@ export function CartItem ({id,quantity}:CartItemProps){
   return (
     <ul className="cartItemsList">
       <li><span>{item.name}</span>
-        <img src={ item.image } alt={ item.name } style={ {width: '100px', height: '100px', objectFit: 'cover'} } />
+        <img src={ item.image } alt={ item.name }
+         style={ {width: '100px', height: '100px', 
+         objectFit: 'cover'} } />
         <span>{quantity}</span>
         <span>{item.price}</span>
         <button onClick={ () => removeCartItem(id) }>Remove</button>

@@ -13,22 +13,31 @@ module.exports = {
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "plugin:prettier/recommended" 
   ],
   plugins: [
     '@typescript-eslint',
     'react',
     'react-hooks',
     'react-refresh',
+    'prettier'
   ],
+  env: {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
   settings: {
     react: {
       version: 'detect',
     },
+    
   },
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   rules: {

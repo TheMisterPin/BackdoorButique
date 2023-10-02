@@ -14,28 +14,28 @@ export function EdibleCard({ id, name, image, price, description }: EdibleCardPr
     getItemQuantity, 
     increaseCartItemQuantity, 
     decreaseCartItemQuantity, 
-    removeCartItem} = useCart()
+    removeCartItem
+  } = useCart()
 
   const quantity = getItemQuantity(id)
 
   return (
     <>
-      <div className="card" key={ id }>
+      <div className="card" key={ id } style={{backgroundImage: `url(${image})`}}>
+    
 
-        <img src={ image } alt={ name } style={{
-          height: '100px',
-          width: '100px',
-         }} />
+        
         <h3>{name}</h3>
         <p>{description}</p>
         <p>{currencyFormat(price)}</p>
-      </div>
+     
 
 
       <div className="cardFooter">
         {quantity === 0 ? (
           <button onClick={ () => increaseCartItemQuantity(id) }>Add to Cart</button>
-        ) : quantity === 1 ? (
+        ) : 
+        quantity === 1 ? (
           <div className="counter">
             <div>
               <button onClick={ () => removeCartItem(id) }>Delete</button>
@@ -43,7 +43,8 @@ export function EdibleCard({ id, name, image, price, description }: EdibleCardPr
               <button onClick={ () => increaseCartItemQuantity(id) } >+</button>
             </div>
           </div>
-        ) : (
+        ) : 
+        (
           <div className="counter">
             <div>
               <button onClick={ () => decreaseCartItemQuantity(id) }>-</button>
@@ -53,7 +54,7 @@ export function EdibleCard({ id, name, image, price, description }: EdibleCardPr
           </div>
         )}
       </div>
-
+ </div>
 
     </>)
 }

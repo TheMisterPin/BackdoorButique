@@ -1,14 +1,9 @@
 import { currencyFormat } from '../../Utils/currencyHandler';
 import { useCart} from '../../context/ShoppingCartContext';
-type EdibleCardProps = {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
-  description: string;
-}
+import { ProductProps } from '../../data/Types/ProductInterface';
 
-export function EdibleCard({ id, name, image, price, description }: EdibleCardProps) {
+
+export function ProductShopCard({ id, title, image, price, description }: ProductProps) {
 
   const {
     getItemQuantity, 
@@ -21,13 +16,13 @@ export function EdibleCard({ id, name, image, price, description }: EdibleCardPr
 
   return (
     <>
-      <div className="card" key={ id } style={{backgroundImage: `url(${image})`}}>
+      <div className="card" key={ id }>
     
 
         
-        <h3>{name}</h3>
+        <h3>{title}</h3>
         <p>{description}</p>
-        <p>{currencyFormat(price)}</p>
+        <p>{price}</p>
      
 
 

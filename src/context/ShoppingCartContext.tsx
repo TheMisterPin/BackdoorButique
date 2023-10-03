@@ -7,16 +7,16 @@ type CartProviderProps = {children: React.ReactNode}
 export type CartContext = {
 openCart: () => void
 closeCart: () => void
-getItemQuantity: (id: string) => number
-increaseCartItemQuantity: (id: string) => void
-decreaseCartItemQuantity: (id: string) => void
-removeCartItem: (id: string) => void
+getItemQuantity: (id: number) => number
+increaseCartItemQuantity: (id: number) => void
+decreaseCartItemQuantity: (id: number) => void
+removeCartItem: (id: number) => void
 cartQuantity: number
 cartItems: CartItem[]
 }
 
 export type CartItem = {
-    id:string
+    id:number
     quantity: number
   }
 /// ////////////////// STATES ////////////////////
@@ -36,11 +36,11 @@ export function CartProvider ({children}: CartProviderProps ){
   const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
 
   /// ////////////////// FUNCTIONS  
-  function getItemQuantity(id: string){
+  function getItemQuantity(id: number){
     return cartItems.find((item) => item.id === id)?.quantity || 0
   }
     
-  function increaseCartItemQuantity(id: string){
+  function increaseCartItemQuantity(id: number){
     setCartItems((currItems) => {
       if(currItems.find((item:CartItem) => item.id === id) == null){
         return [...currItems, {id, quantity: 1}]
@@ -58,7 +58,7 @@ export function CartProvider ({children}: CartProviderProps ){
     })
   }
     
-  function decreaseCartItemQuantity(id: string){
+  function decreaseCartItemQuantity(id: number){
     setCartItems((currItems) => {
       if(currItems.find((item:CartItem) => item.id === id)?.quantity === 1){
         return currItems.filter((item: CartItem) => item.id !== id)
@@ -76,7 +76,7 @@ export function CartProvider ({children}: CartProviderProps ){
     })
   }
     
-  function removeCartItem(id: string){
+  function removeCartItem(id: number){
     setCartItems((currItems) => currItems.filter((item: CartItem) => item.id !== id))
   }
   function openCart(){

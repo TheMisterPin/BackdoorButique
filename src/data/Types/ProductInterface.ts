@@ -1,21 +1,21 @@
 export type ProductProps = {
-    id: string;
-    title: string;
+    id: number;
+    title?: string;
     description?: string;
-    price: number; 
-    category:Category;
-    image: string;
+    price?: number; 
+    category?:Category;
+    image?: string;
     rating?: Rating;
     quantity?: number;
 }
 export type Product = {
-    id: string;
+    id: number;
     title: string;
-    description: string;
-    price: number; 
-    category:Category;
-    image: string;
-    rating: Rating;
+    description?: string;
+    price?: number; 
+    category?:Category;
+    image?: string;
+    rating?: Rating;
 }
 enum Category {
     

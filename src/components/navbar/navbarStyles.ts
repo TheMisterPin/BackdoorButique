@@ -8,6 +8,7 @@ align-items: end;
 justify-content: space-between;
 padding:0 1%;
 z-index: 1;
+
 `
 
 export const ButtonWrapper = styled.ul`

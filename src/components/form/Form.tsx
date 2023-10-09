@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
-type User = {
+type UserProps = {
   name: string;
   surname: string;
   email: string;

@@ -1,0 +1,17 @@
+.Card{
+    border: 3px solid black;
+    width : 220px;
+    padding: 2%; 
+  
+}
+
+.Card h4{ 
+    max-width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: darkgrey;
+}
+
+img{height:18rem;
+width:14rem;}

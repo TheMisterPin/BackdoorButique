@@ -1,3 +1,6 @@
+
+
+
 .shop{display: flex;
 z-index: 1;}
 
@@ -7,11 +10,8 @@ color: #ffff;}
 .products{
 list-style: none;
 display: grid;
-grid-template-rows: repeat(3, 1fr);
-grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-template-columns: repeat(6, 1fr);
 gap: 20px}
 
-.products li{ 
-
-overflow: hidden;}
 

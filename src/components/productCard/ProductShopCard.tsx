@@ -1,9 +1,16 @@
-import { currencyFormat } from '../../Utils/currencyHandler';
+import{LiaCartPlusSolid} from "react-icons/lia"
 import { useCart} from '../../context/ShoppingCartContext';
-import { ProductProps } from '../../data/Types/ProductInterface';
+import "./productCard.css"
+import { currencyFormat} from '../../Utils/currencyHandler';
 
-
-export function ProductShopCard({ id, title, image, price, description }: ProductProps) {
+type ProductCardProps = {
+  id: number,
+  title: string,
+  image: string,
+  price: number,
+  description?: string,
+}
+export function ProductShopCard({ id, title, image, price}:ProductCardProps) {
 
   const {
     getItemQuantity, 
@@ -16,19 +23,17 @@ export function ProductShopCard({ id, title, image, price, description }: Produc
 
   return (
     <>
-      <div className="card" key={ id }>
-    
-
-        
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <p>{price}</p>
+      <div className="Card"  key={id}>    
      
-
-
-      <div className="cardFooter">
+        <div className="imageContainer"> <img src={image}/> </div>
+        <h4>{ title }</h4>
+        <div>
+      {currencyFormat(price)}
+        </div>
+       
+    
         {quantity === 0 ? (
-          <button onClick={ () => increaseCartItemQuantity(id) }>Add to Cart</button>
+          <LiaCartPlusSolid onClick={ () => increaseCartItemQuantity(id) }/>
         ) : 
         quantity === 1 ? (
           <div className="counter">
@@ -48,8 +53,9 @@ export function ProductShopCard({ id, title, image, price, description }: Produc
             </div>
           </div>
         )}
+     
       </div>
- </div>
+
 
     </>)
 }

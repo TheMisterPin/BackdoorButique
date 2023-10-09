@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavWrapper= styled.header`
-width: 100%;
+
 display: flex;
 align-items: end;
 justify-content: space-between;
-padding:0 1%;
+padding:0 5%;
 z-index: 1;
 
 `

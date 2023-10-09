@@ -10,14 +10,15 @@ import NewUserForm from './components/form/NewUserForm';
 
 function App()  {
   return (
+    
     <>
       <CartProvider>
-        <div className="App">         
-         <div className="circles">
+        <div className="App">    
+         {/* <div className="circles">
   <div className="circle1"></div>
   <div className="circle2"></div>
-   <div className="circle3"></div>
-</div>
+   <div className="circle3"></div> */}
+
           <Nav/>
           <section className="content">
                   <Routes>

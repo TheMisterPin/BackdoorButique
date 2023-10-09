@@ -1,4 +1,4 @@
-const currencyHandler = new Intl.NumberFormat(undefined, {
+export const currencyHandler = new Intl.NumberFormat(undefined, {
   currency: "EUR", 
   style: "currency"
 })

@@ -1,49 +1,64 @@
 import './form.css'
-type User ={
-name: string;
- surname: string;
- address: string;
- city: string;
- zipcode: number;
- country: string;
- email: string;
- password: string;
+import{useForm} from 'react-hook-form'
+
+type UserLoginData={
+  userName:string,
+  email:string,
+  password:string,
 }
+
+interface Field {
+  type: string;
+  name: keyof User;  // Using keyof for better type checking
+  label: string;
+}
+
+const formSchema: Field[] = [
+  { type: 'text', name: 'userName', label: 'Username' },
+  { type: 'password', name: 'password', label: 'Password' },
+  { type: 'email', name: 'email', label: 'Email' },
+];
+
+// enum InputType {
+//   userName = 'text',
+//   password = 'password',
+//   email = 'email',
+//   confirmPassword = 'password'
+// }
+
+// const generateForm = (user: User) => {
+//   return Object.keys(user).map(key => ({
+//     type: InputType,
+//     name: key,
+//     label: key.charAt(0).toUpperCase() + key.slice(1),
+//     required: true
+
+//   }));
+// };
+
+
+
+
 
 export default function NewUserForm() {
 
-  function handleNewUser(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
- //get the values of each input 
  
 
-    
 
-}
 
 
 
 
   return (
-<form className='form' onSubmit={handleNewUser}>
-  <h1 className='form-Header'>Let's get started!</h1>
 
-  <div className='form-body'>
- 
-  <input className='form-input' type="text" name="name" id="name" placeholder="Name" />
-  <input className='form-input' type="text" name="surname" id="surname" placeholder="Surname" />
-  <input className='form-input' type="text" name="address" id="address" placeholder="Address" />
-  <input className='form-input' type="text" name="city" id="city" placeholder="City" />
-  <input className='form-input' type="text" name="zipcode" id="zipcode" placeholder="Zipcode" />
-  <input className='form-input' type="text" name="country" id="country" placeholder="Country" />
-  <input className='form-input' type="text" name="email" id="email" placeholder="Email" />
-  <input className='form-input' type="password" name="password" id="password" placeholder="Password" />
-  <input className='form-input' type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
-  <button className='form-button' type="submit">Register</button>
-  </div>
- 
-</form>
 
 
   )
 }
+
+
+// ok, note to self, we get the user type
+// i deconstruct it to create the form schema
+// we use an enum for the input types 
+// then we dinamycally generatei it as the form component
+// i use the dynamic way so i can easly add fields and add scalability 

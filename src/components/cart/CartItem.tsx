@@ -1,6 +1,5 @@
-import { useCart } from '../../context/ShoppingCartContext';
-import { fetchall } from '../../data/API/ApiCalls';
-
+import { useCart } from "../../context/ShoppingCartContext";
+import { fetchall } from "../../data/API/ApiCalls";
 
 type CartItemProps = {
   id: number;
@@ -22,9 +21,9 @@ export function CartItem({ id, quantity }: CartItemProps) {
       <li>
         <span>{item.title}</span>
         <img
-          src={item.image || ''}
+          src={item.image || "" }
           alt={item.title}
-          style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+          style={{ width: "100px", height: "100px", objectFit: "cover" } }
         />
         <span>{quantity}</span>
         <span>{item.price}</span>
@@ -33,5 +32,3 @@ export function CartItem({ id, quantity }: CartItemProps) {
     </ul>
   );
 }
-
-    

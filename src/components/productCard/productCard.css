@@ -1,17 +1,46 @@
 .Card{
-    border: 3px solid black;
-    width : 220px;
+    width: 10vw;
+    border: 1px solid #080C17;
     padding: 2%; 
-  
+    border-radius: 23px;
+    overflow: hidden;
+    background-color: #DBC895;
+  margin-bottom: 7%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
+.Card:hover{
+    transform: scale(1.1);
+}
+.cardBody{
+    display: flex;
+    flex-wrap: wrap;
+    padding:0% 15%;
+}
 .Card h4{ 
-    max-width: 90%;
+width: 8vw;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
-    color: darkgrey;
+    height: 1.2rem;
+    color:  #080C17;
 }
 
-img{height:18rem;
-width:14rem;}
+.imageContainer img{width: calc(8vw);
+height: calc(8vw);
+
+}
+
+.imageContainer{padding: 9px;
+    background-color: #ffff;
+    border-radius: 23px;
+    border: 1px solid #080C17;
+}
+
+.cardBody{
+    display: flex;
+    flex-direction: column;
+}

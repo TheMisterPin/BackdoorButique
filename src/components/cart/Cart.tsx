@@ -1,4 +1,5 @@
 import { useCart } from "../../context/ShoppingCartContext";
+import { currencyFormat } from "../../Utils/currencyHandler";
 import "./cart.css";
 import { CartItem } from "./CartItem";
 
@@ -20,9 +21,20 @@ export function Cart({ isCartOpen }: CartProps) {
         <h1>your cart</h1>
         <ul>
           {cartItems.map((item) => (
-            <CartItem key={ item.id } { ...item } />
+            <CartItem key={item.id} {...item} />
           ))}
+           <div className="CartTotal">
+         {currencyFormat(
+          cartItems.reduce((total, cartItem) => {
+            const item = cartItems.find((item) => item.id === cartItem.id);
+            return total + (item?.price || 0) * cartItem.quantity;
+          }, 0)
+          )}
+         
+        </div>
         </ul>
+
+        
       </div>
     </div>
   );

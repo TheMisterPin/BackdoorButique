@@ -1,34 +1,40 @@
+import { currencyFormat } from "../../Utils/currencyHandler";
 import { useCart } from "../../context/ShoppingCartContext";
 import { fetchall } from "../../data/API/ApiCalls";
+import './cart.css'
 
 type CartItemProps = {
   id: number;
   quantity: number;
   image: string;
   title: string;
-  price: number;
-};
+}
 
-export function CartItem({ id, quantity }: CartItemProps) {
+export function CartItem({ id, quantity}: CartItemProps) {
   const edibles = fetchall();
   const { removeCartItem } = useCart();
   const item = edibles.find((item) => item.id === id);
 
   if (item == null) return null;
 
-  return (
-    <ul className="cartItemsList">
+  return (<>
+    <ul className="cartItemsList" style={{color:"black"}}>
       <li>
-        <span>{item.title}</span>
+        <span className="cardItemTitle">{item.title}</span>
         <img
           src={item.image || "" }
           alt={item.title}
-          style={{ width: "100px", height: "100px", objectFit: "cover" } }
+          style={{ width: "100px", height: "100px", objectFit: "contain" } }
         />
-        <span>{quantity}</span>
-        <span>{item.price}</span>
+        <span className="cardItemQuantity">{quantity}</span>
+        <span className="cardItemQuantity">{currencyFormat(item.price! * quantity)}</span>
+        <span className="cardItemDetalis">{currencyFormat(item.price!)}</span>
+       
         <button onClick={() => removeCartItem(id)}>Remove</button>
+
       </li>
+       
     </ul>
+   </>
   );
 }

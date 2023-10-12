@@ -1,5 +1,6 @@
 import "./form.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 
 type UserProps = {
   name: string;
@@ -27,7 +28,8 @@ type UserProps = {
 // }
 
 export function Form() {
-  return (
+  return (<>
+    <Link to={"/"}>close</Link>
     <form className="form">
       <h1 className="form-Header">Who are you?</h1>
       <div className="form-body">
@@ -41,6 +43,6 @@ export function Form() {
         </NavLink>
         {/* <button onClick={handleNewUser}>Submit</button> */}{" "}
       </div>
-    </form>
+    </form></>
   );
 }

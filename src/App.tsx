@@ -8,6 +8,8 @@ import NewUserForm from "./components/forms/NewUserForm";
 import {CategoriesHome} from "./Pages/categoriesHome";
 import ProductDetails from "./Pages/ProductDetails";
 import { CategoryProducts } from "./components/categoryProducts/CategoryProducts";
+import LogoutForm from "./components/forms/LogoutForm";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 
 
@@ -34,6 +36,9 @@ function App() {
               <Route path="/categorieshome" element={<CategoriesHome />} />
               <Route path="/productdetails/:id" element={<ProductDetails />} />
               <Route path="/category/:id" element={<CategoryProducts />} />
+              <Route path="/logout" element={<LogoutForm/>}/>
+              <Route path="/user/:userprofile"element={<UserProfile/>}/>
+              <Route path="*" element={<h1>404</h1>} />
 
             </Routes>{" "}
           </section>

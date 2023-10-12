@@ -19,6 +19,11 @@ type User = {
   country: string;
 };
 
+type UserLoginData = {
+  userName: string;
+  password: string;
+};
+
 
 
 export default function NewUserForm() {
@@ -29,11 +34,7 @@ export default function NewUserForm() {
 
   } = useForm<User>();
 const Navigate = useNavigate();
-  useEffect(() => {
-    if (!localStorage.getItem("users.json")) {
-      localStorage.setItem("users.json", JSON.stringify([]));
-    }
-  }, []);
+  
 
   const createNewUser = (newUserData: User) => {
     const existingUsers = JSON.parse(
@@ -41,7 +42,7 @@ const Navigate = useNavigate();
     );
     existingUsers.push(newUserData);
     localStorage.setItem("users.json", JSON.stringify(existingUsers));
-Navigate("/home");
+Navigate("/");
     alert("User created successfully!");
 
   }

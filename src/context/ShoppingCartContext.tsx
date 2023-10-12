@@ -16,6 +16,9 @@ export type CartContext = {
 export type CartItem = {
   id: number;
   quantity: number;
+  price?: number;
+
+
 };
 /// ////////////////// STATES ////////////////////
 const CartContext = createContext({} as CartContext);
@@ -24,9 +27,9 @@ const CartContext = createContext({} as CartContext);
 export function useCart() {
   return useContext(CartContext);
 }
-/// ////////////////// EXPORT THE CONTEXT  //////////////////
+
 export function CartProvider({ children }: CartProviderProps) {
-  /// ////////////////// STATES////////////////////////////////
+
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const cartQuantity = cartItems.reduce(
@@ -34,7 +37,7 @@ export function CartProvider({ children }: CartProviderProps) {
     0
   );
 
-  /// ////////////////// FUNCTIONS
+ 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }

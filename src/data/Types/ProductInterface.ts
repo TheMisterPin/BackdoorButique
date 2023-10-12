@@ -10,6 +10,7 @@ export type ProductProps = {
   quantity?: number;
 };
 export type Product = {
+  quantity: number;
   id: number;
   title: string;
   description?: string;

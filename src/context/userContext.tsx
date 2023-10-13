@@ -1,5 +1,8 @@
 import{ createContext, useCallback, useReducer, useMemo} from "react"
-import {UserLoginData} from '../data/Types/UserLogin'
+import {UserLoginData} from '../data'
+
+
+
 type LoginState={
   isLogin:boolean
   error : string
@@ -25,8 +28,8 @@ const initialState:LoginState = {
   logoutHandler: () => {},
 });
 
-type UserProviderProps = { children: React.ReactNode }
-export function UserProvider({ children }: UserProviderProps) {
+
+export function UserProvider({ children }: ProviderProps) {
     const reducer =
       (state: LoginState, action: LoginAction): LoginState  => {
         switch (action.type) {

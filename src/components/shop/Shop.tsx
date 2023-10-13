@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { ProductShopCard } from "../Index";
-import { Product } from "../../data/Types/ProductInterface";
+import { Product } from "../../data/";
 import "./shop.css";
 import { useFetch } from '../../Hooks/useFetch';
 import { useApiTimer } from '../../Hooks/useApiTimer';
@@ -23,7 +23,7 @@ export function Shop() {
 
   return (
     <>
-      <section className="mx-auto" style={{ width: "90%" }}>
+      <section className="mx-auto">
         <h1>Shop</h1>
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}

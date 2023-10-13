@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import { Cart } from "../components/Index";
 
-type CartProviderProps = { children: React.ReactNode };
-export type CartContext = {
+type ProviderProps = { children: React.ReactNode };
+export type CartContextType  = {
   openCart: () => void;
   closeCart: () => void;
   getItemQuantity: (id: number) => number;
@@ -20,15 +20,15 @@ export type CartItem = {
 
 
 };
-/// ////////////////// STATES ////////////////////
-const CartContext = createContext({} as CartContext);
 
-/// ////////////////////CUSTOM HOOK, CHULO AH?////////////////
+const CartContext = createContext({} as CartContextType);
+
+
 export function useCart() {
   return useContext(CartContext);
 }
 
-export function CartProvider({ children }: CartProviderProps) {
+export function CartProvider({ children }: ProviderProps) {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);

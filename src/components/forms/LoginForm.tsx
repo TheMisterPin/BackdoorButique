@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import "./form.css";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/userContext";
-import { UserLoginData } from '../../data/Types/UserLogin';
+import { UserContext } from "../../context/";
+import { UserLoginData } from "../../data";
 
-export default function LoginForm() {
+export function LoginForm() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm<UserLoginData>();
   const { state, loginHandler } = useContext(UserContext);

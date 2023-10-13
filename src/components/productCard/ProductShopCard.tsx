@@ -49,7 +49,7 @@
 import { useCart } from '../../context/ShoppingCartContext';
 import { currencyFormat } from '../../Utils/currencyHandler';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Container, Button, Ratio } from 'react-bootstrap';
+import { Card,Ratio } from 'react-bootstrap';
 import'./productCard.css';
 import { CartActionButtons } from '../ui/cartActionButtons';
 import Image from 'react-bootstrap/Image';

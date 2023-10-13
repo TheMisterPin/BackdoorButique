@@ -46,7 +46,7 @@ export function UserProvider({ children }: UserProviderProps) {
       const loginHandler = useCallback((username: string, password: string) => {
         const tempUsers = JSON.parse(localStorage.getItem("users") || "[]");
         const isUserValid = tempUsers.some((user: UserLoginData) =>
-         user.userName === username && user.password === password);
+         user.username === username && user.password === password);
   
         if (isUserValid) {
           dispatch({ type: "LOGIN_VALID" });
@@ -58,7 +58,7 @@ export function UserProvider({ children }: UserProviderProps) {
         }
       }, [])
       const logoutHandler = useCallback(() => {
-        localStorage.removeItem("users"); // Remove users from local storage
+        localStorage.removeItem("users"); 
         dispatch({ type: "LOGOUT" });
         alert("Logged out successfully");
     }, []);

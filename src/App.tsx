@@ -10,7 +10,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import { CategoryProducts } from "./components/categoryProducts/CategoryProducts";
 import LogoutForm from "./components/forms/LogoutForm";
 import UserProfile from "./components/UserProfile/UserProfile";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

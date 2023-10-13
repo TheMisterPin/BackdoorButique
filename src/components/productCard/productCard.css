@@ -1,46 +1,56 @@
-.Card{
-    width: 10vw;
-    border: 1px solid #080C17;
-    padding: 2%; 
-    border-radius: 23px;
-    overflow: hidden;
-    background-color: #DBC895;
-  margin-bottom: 7%;
+/* .Card{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 7%;
+ 
+    border: 1px solid #080C17; 
+    border-radius: 23px;
+    background-color: #DBC895;
+   overflow: hidden;
 }
 
 .Card:hover{
     transform: scale(1.1);
+     overflow:auto;
 }
 .cardBody{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    padding:0% 15%;
+    padding:0% 5%;
 }
 .Card h4{ 
-width: 8vw;
+    width: 10vw;
+    color:  #080C17;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    height: 1.2rem;
-    color:  #080C17;
 }
 
-.imageContainer img{width: calc(8vw);
-height: calc(8vw);
+.imageContainer img{width: calc(12vw);
+height: calc(12vw);
 
 }
 
 .imageContainer{padding: 9px;
-    background-color: #ffff;
-    border-radius: 23px;
     border: 1px solid #080C17;
+    border-radius: 23px;
+    background-color: #ffff;
 }
 
 .cardBody{
     display: flex;
     flex-direction: column;
-}
+} */
+
+
+
+  
+  .ProductImageContainer {
+    width: 85%;
+  }
+  
+  

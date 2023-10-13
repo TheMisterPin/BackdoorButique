@@ -11,10 +11,10 @@ export default function LoginForm() {
   const { state, loginHandler } = useContext(UserContext);
 
   const onSubmit = (loginData: UserLoginData) => {
-    loginHandler(loginData.userName, loginData.password);
+    loginHandler(loginData.username, loginData.password);
 
     if (state.isLogin) {
-      alert(`Login successful! Good to see you again ${loginData.userName}`);
+      alert(`Login successful! Good to see you again ${loginData.username}`);
       navigate('/');
     } else {
       alert("Invalid username or password");
@@ -30,7 +30,7 @@ export default function LoginForm() {
           <input
             className="form-input"
             type="text"
-            { ...register("userName") }
+            { ...register("username") }
             placeholder="Username"
             aria-label="Enter your username"
             required

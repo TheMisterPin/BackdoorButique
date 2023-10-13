@@ -4,11 +4,15 @@ import { Product } from "../../data/Types/ProductInterface";
 import "./shop.css";
 import { useFetch } from '../../Hooks/useFetch';
 import { useApiTimer } from '../../Hooks/useApiTimer';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Ratio from 'react-bootstrap/Ratio';
+
 
 export function Shop() {
   const { data: products, loading, error } = useFetch<Product>("/?limit=30");
-  const { logTimeAndSession, sessionTime, callCount } = useApiTimer();
-  
+  const { logTimeAndSession} = useApiTimer();
+ 
   useEffect(() => {
     const startTime = performance.now();
     if (!loading && !error) {
@@ -19,20 +23,20 @@ export function Shop() {
 
   return (
     <>
-      <section className="shop">
+      <section className="mx-auto" style={{ width: "90%" }}>
         <h1>Shop</h1>
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
-        <ul className="products" >
-          {products &&
-            products.map((product: Product) => (
-          
-                <ProductShopCard {...product} />
-            
-            ))}
-        </ul>
-        <p>Total API calls made: {callCount}</p>
-        <p>Total session time: {sessionTime} ms</p>
+        <Row xs={2} md={2} lg={6} xl={8} fluid="sm"
+        className="g-4">
+      {products.map((product, idx) => (
+        <Col key={idx}>
+           <Ratio aspectRatio={150}>
+          <ProductShopCard {...product} />
+          </Ratio>
+        </Col>
+      ))}
+    </Row>
       </section>
     </>
   );

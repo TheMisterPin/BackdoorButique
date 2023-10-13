@@ -35,3 +35,6 @@ export const UserIcon: React.FC<IconProps> = ({ onClick }) => {
 export const CheckoutIcon: React.FC<IconProps> = ({ onClick }) => {
   return <IconImg onClick={onClick} src="https://img.icons8.com/stickers/100/cash-in-hand" />
 }
+
+
+

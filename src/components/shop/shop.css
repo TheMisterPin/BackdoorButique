@@ -2,14 +2,14 @@
 
 
 
-.shop h1{user-select: none;
-color: #080C17;}
+.shop h1{
+color: #080C17;user-select: none;}
 
 .products{
+ display: grid;
   width: 85%;
     background-color: azure;
 list-style: none;
- display: grid;
   grid-template-rows: repeat(auto-fit, 1fr);
   grid-template-columns: repeat(6, 1fr);
 }

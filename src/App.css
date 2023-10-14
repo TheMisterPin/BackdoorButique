@@ -15,16 +15,18 @@
   base-palette: 10;
 
 }
-
-.base{
-  background-image: url('/src/assets/AppBg.jpg');
+* {box-sizing: border-box;}
+.App{
+  background-image: url('/src/assets/imgs/backgrounds/AppBg.jpg');
   background-size: cover ;
-min-height: 89vh;
-width: 100vw;
+min-height: 100vh;
+overflow-x: hidden;
+padding: 4%;
+
 }
 
-.title{  font-family: Rocher;
-  
+.title{  font-family: Rocher;  
+  text-align: center;
   font-size: clamp(1rem, 5vw, 4.6rem);
   }
 
@@ -36,7 +38,11 @@ width: 100vw;
 
 @media (max-width: 768px) {
   .hide-on-mobile {
-    display: none; /* This will hide the element on mobile */
+    display: none !important; 
+  }
+  .title{
+    width: 100vw;
+    font-size: clamp(1rem, 80vw, 2rem)
   }
 }
 

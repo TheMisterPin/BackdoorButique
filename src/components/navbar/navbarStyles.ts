@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import bgImage from '../../assets/Background.jpg'
+import bgImage from '../../assets/imgs/backgrounds/Background.jpg'
 export const NavWrapper = styled.header`
   display: flex;
   align-items: end;
@@ -16,16 +16,22 @@ export const ButtonWrapper = styled.ul`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  color: black;
+  font-size: 1.5rem;  
+ 
+
+text-decoration: none;
+color: #513D32;
   &.active {
-    color: blue;
+    color: #EEB246;
+    text-decoration: underline;
+  
   }
 `;
 
-export const NavLinkWrapper = styled.ul`
+export const NavLinkWrapper = styled.div`
   list-style: none;
-
+  gap: 1rem;
+  display: inline-flex;
 `;
 
 export const Navbar = styled.nav`

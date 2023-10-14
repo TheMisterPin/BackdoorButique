@@ -1,6 +1,6 @@
 import{ createContext, useCallback, useReducer, useMemo} from "react"
 import {UserLoginData} from '../data'
-
+import { ProviderProps } from '../data/Types/PropsTypes';
 
 
 type LoginState={

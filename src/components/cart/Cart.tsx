@@ -1,34 +1,42 @@
-import { useCart } from "../../context/ShoppingCartContext";
-import { currencyFormat } from "../../Utils/currencyHandler";
-import "./cart.css";
-import { CartItem } from "./CartItem";
 
+import { Button, Dropdown, Menu } from 'antd';
+import { useCart } from "../../context/ShoppingCartContext";
 type CartProps = {
   isCartOpen: boolean;
+
 };
 
-export function Cart({ isCartOpen }: CartProps) {
-  const { closeCart, cartItems } = useCart();
+export function Cart({isCartOpen}:CartProps)  {
+  const { 
+    cartItems, 
 
-  if (!isCartOpen) {
-    return null;
-  }
+    openCart, 
+    closeCart 
+  } = useCart();
+
+  const total = cartItems.reduce((sum, item) => sum + (item.price ? item.price : 0) * item.quantity, 0);
+
+  const dropdownMenu = (
+    <Menu>
+      <Menu.ItemGroup title={`Total: ${total}`} key="total">
+        <Button type="primary" block>
+          Checkout
+        </Button>
+      </Menu.ItemGroup>
+      {cartItems.map(item => (
+        <Menu.Item key={item.id}>
+          {`${item.id} (x${item.quantity}) - Total: ${item.price ? item.price : 0 * item.quantity}`}
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
 
   return (
-    <div className="cartPopup">
-      <div className="cartPopup-content">
-        <button onClick={closeCart}>Close</button>
-        <h1>Your cart</h1>
-        <ul>
-           {cartItems.map((item) => <CartItem key={item.id} {...item} />)}
-        </ul>
-        
-        <div className="CartTotal">
-          Total: {currencyFormat(cartItems.reduce((total, cartItem) => total + (cartItem.price || 0) * cartItem.quantity, 0))}
-        </div>
-        
-        {cartItems.length === 0 && <div>Your cart is empty!</div>}
-      </div>
+    <div>
+      <Button onClick={() => isCartOpen ? closeCart() : openCart()}>
+        Cart ({cartItems.length})
+      </Button>
+      {isCartOpen && dropdownMenu}
     </div>
   );
-}
+};

@@ -21,9 +21,11 @@ export function Shop() {
 
   return (
     <>
-      <section className="mx-auto base" >
-      <Row xs={2} md={2} lg={6} xl={8} fluid="sm"
-        className="g-4">
+      <section style={{marginTop: "2rem"}}>
+       
+  
+      <Row xs={1} md={2} lg={6} xl={8}
+        className="g-4" >
       {products.map((product, idx) => (
         <Col key={idx}>
      

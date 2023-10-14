@@ -1,20 +1,12 @@
-.ProductCard {
-    width: 18rem;
-    display: flex;
-    flex-direction: column; 
-  }
-  
+
   .ProductImageContainer {
-    width: 85%; 
-    object-fit: contain; 
+  
+    max-width: 85%; 
+    object-fit: contain;
+     
   }
   
-  .ProductCardBody {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+
   
   .ProductInfo {
     margin-bottom: 10px; /* Consistent spacing */

@@ -10,6 +10,8 @@ import { UserProvider } from "./context/";
 import { ProductsProvider } from "./context";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import {ShopPage} from "./Pages/ShopHome";
+
 
 
 function App() {
@@ -19,10 +21,11 @@ function App() {
       <CartProvider>
 
           <Nav />
-          <section className="content">
+          <section className="base App">
             <Routes>
+              <Route path="/BackdoorButique/" element={<Home />} />
               <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
+              <Route path="/shop" element={<ShopPage />} />
               <Route path="/cart" element={<Cart isCartOpen={false} />} />
               <Route path="/form" element={<Form />} />
               <Route path="/loginform" element={<LoginForm />} />
@@ -30,7 +33,6 @@ function App() {
               <Route path="/categorieshome" element={<CategoriesHome />} />
               <Route path="/productdetails/:id" element={<ProductDetails />} />
               <Route path="/category/:id" element={<CategoryProducts />} />
-              <Route path="/logout" element={<LogoutForm/>}/>
               <Route path="/user/:userprofile"element={<UserProfile/>}/>
               <Route path="*" element={<h1>404</h1>} />
 

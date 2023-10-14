@@ -7,12 +7,12 @@ export function ActionButtons() {
   const { openCart, cartQuantity } = useCart();
 
   return (
-    <ButtonWrapper className="actionButtons">
+    <ButtonWrapper className="hide-on-mobile">
       <button>
         <NavLink to="/form"><UserIcon/></NavLink>
       </button>
-      <FullCartIcon onClick={ openCart }/>
-        {/* <NavLink to="/cart">Cart</NavLink> ({cartQuantity}) */}
+     
+     <NavLink to="/cart"> <FullCartIcon onClick={ openCart }/></NavLink> ({cartQuantity}) 
      
     </ButtonWrapper>
   );

@@ -37,6 +37,7 @@ import { Product } from '../../data/Types/ProductInterface';
 import { ProductShopCard } from '../Index';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../Hooks/useFetch';
+import { Col, Row } from 'react-bootstrap';
 
 
 export function CategoryProducts() {
@@ -48,18 +49,23 @@ export function CategoryProducts() {
 
 
   return (
-    <div className='base d-flex'>
+    <div className=''>
       <h2 className='pageTitle'>Products in category: {id}</h2>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      <ul>
+      <Row xs={1} md={2} lg={6} xl={8}
+        className="g-4" >
       {data &&
             data.map((product: Product) => (
-              <li key={product.id}>
+              <Col key={id}>
+     
                 <ProductShopCard {...product} />
-              </li>
-            ))}
-      </ul>
+                </Col>
+      ))}
+    </Row> 
     </div>
   );
 }
+
+      
+        

@@ -45,14 +45,13 @@
 // }
 
 
-
 import { useCart } from '../../context/ShoppingCartContext';
 import { currencyFormat } from '../../Utils/currencyHandler';
 import { Link } from 'react-router-dom';
 import { Card,Ratio } from 'react-bootstrap';
 import'./productCard.css';
 import { CartActionButtons } from '../ui/cartActionButtons';
-import Image from 'react-bootstrap/Image';
+import { titleHandler } from '../../Utils/titleFomatter';
 
 type ProductCardProps = {
   id: number;
@@ -67,14 +66,15 @@ export function ProductShopCard({ id, title, image, price }: ProductCardProps) {
   const quantity = getItemQuantity(id);
 
   return (
-    <Card className="ProductCard">
-         <Ratio aspectRatio={100}>
-    <Card.Img variant="top" src={image} className="ProductImageContainer"/>
-    </Ratio>
+    <Card className='d-flex justify-content-evenly' style={{flex:' 1'}}>
+        
+    <Card.Img src={image} className="ProductImageContainer"/>
+ 
     <Card.Body className="ProductCardBody">
       <div className="ProductInfo">
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>Price: {price}</Card.Text>
+        <Card.Title>{titleHandler(title)}
+</Card.Title>
+        <Card.Text>Price: {currencyFormat(price)}</Card.Text>
       </div>
       <div className="ProductActions">
       <Link to={`/productdetails/${id}`}>Show More</Link>

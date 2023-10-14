@@ -22,7 +22,8 @@ export const useFetch = <T extends unknown>(endpoint: string) => {
         const json = await response.json();
         setData(json);
       } catch (error: any) {
-        setError(error.message as string);
+        const formattedError = `e${error.status}`;
+  setError(formattedError);
       } finally {
         setLoading(false);
       }

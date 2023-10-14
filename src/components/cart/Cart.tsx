@@ -1,4 +1,3 @@
-// eslint-disable-next-line prettier/prettier
 import { useCart } from "../../context/ShoppingCartContext";
 import { currencyFormat } from "../../Utils/currencyHandler";
 import "./cart.css";
@@ -11,30 +10,24 @@ type CartProps = {
 export function Cart({ isCartOpen }: CartProps) {
   const { closeCart, cartItems } = useCart();
 
-  if (isCartOpen === false) {
-    // eslint-disable-next-line prettier/prettier
+  if (!isCartOpen) {
     return null;
   }
 
   return (
     <div className="cartPopup">
       <div className="cartPopup-content">
-        <button onClick={ closeCart }>Close</button>
-        <h1>your cart</h1>
+        <button onClick={closeCart}>Close</button>
+        <h1>Your cart</h1>
         <ul>
-          {cartItems.map((item) => (
-            <CartItem key={ item.id } { ...item } />
-          ))}
-          <div className="CartTotal">
-            {currencyFormat(
-              cartItems.reduce((total, cartItem) => {
-                const item = cartItems.find((item) => item.id === cartItem.id);
-
-                return total + (item?.price || 0) * cartItem.quantity;
-              }, 0)
-            )}
-          </div>
+           {cartItems.map((item) => <CartItem key={item.id} {...item} />)}
         </ul>
+        
+        <div className="CartTotal">
+          Total: {currencyFormat(cartItems.reduce((total, cartItem) => total + (cartItem.price || 0) * cartItem.quantity, 0))}
+        </div>
+        
+        {cartItems.length === 0 && <div>Your cart is empty!</div>}
       </div>
     </div>
   );

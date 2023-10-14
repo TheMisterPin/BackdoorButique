@@ -11,8 +11,8 @@ type Category = {
       
         return (
           <>
-            <section className="categoriesHome">
-              <h1>categories</h1>
+            <section className="base d-flex">
+              <h1 className='pageTitle'>categories</h1>
               <ul className="categories">
                 {categories && categories.map((category, index) => (
                   <li key={index}>

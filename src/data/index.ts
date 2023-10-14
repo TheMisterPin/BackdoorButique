@@ -3,3 +3,4 @@ export { User, UserContactDetails, UserShippingData, UserLoginData } from './Typ
 export { ProductContextType } from './Types/ProductContextType';
 export { ProductProps } from "./Types/ProductInterface";
 export { Product } from "./Types/ProductInterface";
+export { CartItemType } from "./Types/CartTypes";

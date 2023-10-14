@@ -13,10 +13,10 @@ export type Product = {
   quantity: number;
   id: number;
   title: string;
-  description?: string;
-  price?: number;
-  category?: Category;
-  image?: string;
+  description: string;
+  price: number;
+  category: Category;
+  image: string;
   rating?: Rating;
 };
 enum Category {

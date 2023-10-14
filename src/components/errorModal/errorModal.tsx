@@ -2,7 +2,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import products from '../../data/products.json';
 import { ErrorDescriptions } from './ErrorEnum';
 
 interface ErrorModalProps {
@@ -24,10 +23,10 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({ show, error, onHide, loa
   return (
     <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
-        <Modal.Title>{errorDescription}</Modal.Title>
+        <Modal.Title>{error}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Oops! Looks like something went wrong. Would you like to load the data from the internal JSON file?</p>
+        {errorDescription}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onHide}>

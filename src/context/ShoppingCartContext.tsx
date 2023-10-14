@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { Cart } from "../components/Index";
 
 type ProviderProps = { children: React.ReactNode };
-export type CartContextType  = {
+export type CartContextType = {
   openCart: () => void;
   closeCart: () => void;
   getItemQuantity: (id: number) => number;
@@ -17,8 +17,6 @@ export type CartItem = {
   id: number;
   quantity: number;
   price?: number;
-
-
 };
 
 const CartContext = createContext({} as CartContextType);
@@ -37,7 +35,7 @@ export function CartProvider({ children }: ProviderProps) {
     0
   );
 
- 
+
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
@@ -88,7 +86,7 @@ export function CartProvider({ children }: ProviderProps) {
 
   return (
     <CartContext.Provider
-      value={ {
+      value={{
         getItemQuantity,
         increaseCartItemQuantity,
         decreaseCartItemQuantity,
@@ -101,7 +99,7 @@ export function CartProvider({ children }: ProviderProps) {
       }}
     >
       {children}
-      <Cart isCartOpen={ isCartOpen } />
+      <Cart isCartOpen={isCartOpen} />
     </CartContext.Provider>
   );
 }

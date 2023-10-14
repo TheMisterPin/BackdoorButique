@@ -42,20 +42,14 @@ import { useFetch } from '../../Hooks/useFetch';
 export function CategoryProducts() {
   const { id } = useParams<{ id: string }>();
   
-  // Using the custom hook to fetch data
+
   const { data, loading, error } = useFetch<Product>(`/category/${id}`);
   
-  // No need to set the products state; it's handled by the custom hook
-  // const [products, setProducts] = useState<Product[] | null>(null);
 
-  // Removed the useEffect for fetching; it's handled by the custom hook
-  // useEffect(() => {
-  //  // fetch logic
-  // }, [id]);
 
   return (
-    <div>
-      <h2>Products in category: {id}</h2>
+    <div className='base d-flex'>
+      <h2 className='pageTitle'>Products in category: {id}</h2>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       <ul>

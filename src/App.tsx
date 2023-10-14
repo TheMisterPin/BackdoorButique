@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./Pages/Home";
 import { Cart, ErrorModal, Form, LoginForm, LogoutForm, Nav, NewUserForm, Shop } from "./components/Index";
@@ -7,10 +6,10 @@ import {CategoriesHome} from "./Pages/categoriesHome";
 import ProductDetails from "./Pages/ProductDetails";
 import { CategoryProducts } from "./components/categoryProducts/CategoryProducts";
 import UserProfile from "./components/UserProfile/UserProfile";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { UserProvider } from "./context/UserContext";
+import { UserProvider } from "./context/";
 import { ProductsProvider } from "./context";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
 
 
 function App() {

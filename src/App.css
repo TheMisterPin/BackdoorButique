@@ -1,15 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-
-.App {
-
-  margin: 0;
-  padding: 0;
- background-color: black;
-  font-family: Poppins;
+.root{background-color: #DBC895;}
+@font-face {
+  font-family: 'Rocher';
+  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
 }
 
-.linkContainer{
-  border: 1px groove rgba(255, 255, 255, 0.15);    background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);}
+@font-palette-values --textInput {
+  font-family: Rocher;
+  base-palette: 2;
+}
 
+@font-palette-values --header {
+  font-family: Rocher;
+  base-palette: 10;
+
+}
+
+.base{
+  background-image: url('/src/assets/AppBg.jpg');
+  background-size: cover ;
+min-height: 89vh;
+width: 100vw;
+}
+
+.title{  font-family: Rocher;
+  
+  font-size: clamp(1rem, 5vw, 4.6rem);
+  }
+
+.pageTitle{font-family: Rocher;
+  font-palette:  --header;
+  font-size: clamp(1rem, 5vw, 4rem);
+
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none; /* This will hide the element on mobile */
+  }
+}
+
+button{background-color: white;
+border:none;}

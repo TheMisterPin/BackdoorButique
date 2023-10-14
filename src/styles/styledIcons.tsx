@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+ const logo = "https://img.icons8.com/stickers/75/shopaholic.png"
 
+
+
+export const LogoIcon = styled.img`
+height: 3rem;
+width: 3rem;   // Added this to maintain aspect ratio. Adjust as needed.
+background-image: url(${logo});
+background-size: cover;
+`;
 const IconImg = styled.img`
   width: 50px;
   height: 50px;
@@ -36,5 +45,9 @@ export const CheckoutIcon: React.FC<IconProps> = ({ onClick }) => {
   return <IconImg onClick={onClick} src="https://img.icons8.com/stickers/100/cash-in-hand" />
 }
 
+
+export const HomeIcon: React.FC<IconProps> = ({ onClick }) => {
+  return <IconImg onClick={onClick} src="https://img.icons8.com/stickers/25/cottage.png" />
+}
 
 

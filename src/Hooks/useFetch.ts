@@ -20,11 +20,16 @@ export const useFetch = <T extends unknown>(endpoint: string) => {
         }
         
         const json = await response.json();
-        setData(json);
+        
+        // Introduce a delay before setting data and loading to false
+        setTimeout(() => {
+          setData(json);
+          setLoading(false);
+        }, 1500);
+        
       } catch (error: any) {
         const formattedError = `e${error.status}`;
-  setError(formattedError);
-      } finally {
+        setError(formattedError);
         setLoading(false);
       }
     };

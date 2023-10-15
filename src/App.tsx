@@ -26,7 +26,7 @@ function App() {
               <Route path="/BackdoorButique/" element={<Home />} />
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<ShopPage />} />
-              <Route path="/cart" element={<Cart isCartOpen={false} />} />
+              <Route path="/cart" element={<Cart/>} />
               <Route path="/form" element={<Form />} />
               <Route path="/loginform" element={<LoginForm />} />
               <Route path="/newuserform" element={<NewUserForm />} />

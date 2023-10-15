@@ -1,42 +1,49 @@
+import { currencyFormat } from '../../Utils/currencyHandler';
+import { useCart, useProducts } from '../../context';
+import { CartItem } from './CartItem';
 
-import { Button, Dropdown, Menu } from 'antd';
-import { useCart } from "../../context/ShoppingCartContext";
-type CartProps = {
-  isCartOpen: boolean;
 
-};
-
-export function Cart({isCartOpen}:CartProps)  {
-  const { 
-    cartItems, 
-
-    openCart, 
-    closeCart 
-  } = useCart();
-
-  const total = cartItems.reduce((sum, item) => sum + (item.price ? item.price : 0) * item.quantity, 0);
-
-  const dropdownMenu = (
-    <Menu>
-      <Menu.ItemGroup title={`Total: ${total}`} key="total">
-        <Button type="primary" block>
-          Checkout
-        </Button>
-      </Menu.ItemGroup>
-      {cartItems.map(item => (
-        <Menu.Item key={item.id}>
-          {`${item.id} (x${item.quantity}) - Total: ${item.price ? item.price : 0 * item.quantity}`}
-        </Menu.Item>
-      ))}
-    </Menu>
+export function Cart() {
+  const {  cartItems } = useCart();
+  const { products, loading } = useProducts();
+  const cartProducts = products.filter(product => 
+    cartItems.some(cartItem => cartItem.id === product.id)
   );
-
+  
   return (
-    <div>
-      <Button onClick={() => isCartOpen ? closeCart() : openCart()}>
-        Cart ({cartItems.length})
-      </Button>
-      {isCartOpen && dropdownMenu}
+    <div className="cartPopup">
+    <div className="cartPopup-content">
+      
+      <h1>your cart</h1>
+      <ul>
+  {cartProducts.map((item) => (
+    <CartItem key={item.id} {...item} isLoading={loading} />
+  ))}
+
+  <div className="CartTotal">
+    {currencyFormat(
+      cartProducts.reduce((total, cartItem) => {
+        const item = cartProducts.find((item) => item.id === cartItem.id);
+        console.log("Current Item:", item); // Debugging line
+        console.log("Current Total:", total); // Debugging line
+        const itemPrice = item?.price ?? 0; // Nullish coalescing
+        const itemQuantity = cartItem.quantity ?? 0; // Nullish coalescing
+        console.log("Item Price:", itemPrice); // Debugging line
+        console.log("Item Quantity:", itemQuantity); // Debugging line
+        return total + itemPrice * itemQuantity;
+      }, 0)
+    )}
+  </div>
+</ul>
+
+
+
+
+
+
+
+      
     </div>
+  </div>
   );
-};
+}

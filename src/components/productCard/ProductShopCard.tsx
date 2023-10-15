@@ -48,7 +48,7 @@
 import { useCart } from '../../context/ShoppingCartContext';
 import { currencyFormat } from '../../Utils/currencyHandler';
 import { Link } from 'react-router-dom';
-import { Card,Ratio } from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
 import'./productCard.css';
 import { CartActionButtons } from '../ui/cartActionButtons';
 import { titleHandler } from '../../Utils/titleFomatter';
@@ -66,10 +66,10 @@ export function ProductShopCard({ id, title, image, price }: ProductCardProps) {
   const quantity = getItemQuantity(id);
 
   return (
-    <Card className='d-flex justify-content-evenly' style={{flex:' 1'}}>
-        
-    <Card.Img src={image} className="ProductImageContainer"/>
- 
+    <Card className='Card'>
+     <div className="imageContainer"style={{objectFit:'contain'}}>   
+    <Card.Img src={image} />
+ </div>
     <Card.Body className="ProductCardBody">
       <div className="ProductInfo">
         <Card.Title>{titleHandler(title)}

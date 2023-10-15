@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { Cart } from "../components/Index";
+import { Product } from '../data/';
+
 
 
 
@@ -13,21 +15,17 @@ export type CartContextType = {
   decreaseCartItemQuantity: (id: number) => void;
   removeCartItem: (id: number) => void;
   cartQuantity: number;
-  cartItems: CartItem[];
-  isWishlist: (id: number) => boolean;
-  addToWishlist: (id: number) => void;
-  removeFromWishlist: (id: number) => void;
-  isWishlistOpen: boolean;
-  openWishlist: () => void;
-  closeWishlist: () => void;
+  cartItems: Product[];
+  // isWishlist: (id: number) => boolean;
+  // addToWishlist: (id: number) => void;
+  // removeFromWishlist: (id: number) => void;
+  // isWishlistOpen: boolean;
+  // openWishlist: () => void;
+  // closeWishlist: () => void;
   isCartOpen?: boolean;
 };
 
-export type CartItem = {
-  id: number;
-  quantity: number;
-  price?: number;
-};
+
 
 const CartContext = createContext({} as CartContextType);
 
@@ -37,8 +35,8 @@ export function useCart() {
 
 export function CartProvider({ children }: ProviderProps) {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [wishlist, setWishlist] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [wishlist, setWishlist] = useState<Product[]>([]);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
   const cartQuantity = cartItems.reduce(
@@ -52,12 +50,14 @@ export function CartProvider({ children }: ProviderProps) {
 
   function increaseCartItemQuantity(id: number) {
     setCartItems((currItems) => {
-      if (!currItems.find((item: CartItem) => item.id === id)) {
+      if (!currItems.find((item: any) => item.id === id)) {
+        console.log(cartItems);
         return [...currItems, { id, quantity: 1 }];
       }
 
-      return currItems.map((item: CartItem) => {
+      return currItems.map((item:any) => {
         if (item.id === id) {
+          console.log(cartItems);
           return { ...item, quantity: item.quantity + 1 };
         }
         return item;
@@ -67,11 +67,11 @@ export function CartProvider({ children }: ProviderProps) {
 
   function decreaseCartItemQuantity(id: number) {
     setCartItems((currItems) => {
-      if (currItems.find((item: CartItem) => item.id === id)?.quantity === 1) {
-        return currItems.filter((item: CartItem) => item.id !== id);
+      if (currItems.find((item:Product) => item.id === id)?.quantity === 1) {
+        return currItems.filter((item: Product) => item.id !== id);
       }
 
-      return currItems.map((item: CartItem) => {
+      return currItems.map((item:Product) => {
         if (item.id === id) {
           return { ...item, quantity: item.quantity - 1 };
         }
@@ -81,22 +81,22 @@ export function CartProvider({ children }: ProviderProps) {
   }
 
   function removeCartItem(id: number) {
-    setCartItems((currItems) => currItems.filter((item: CartItem) => item.id !== id));
+    setCartItems((currItems) => currItems.filter((item: Product) => item.id !== id));
   }
 
-  function isWishlist(id: number) {
-    return !!wishlist.find((item) => item.id === id);
-  }
+  // function isWishlist(id: number) {
+  //   return !!wishlist.find((item) => item.id === id);
+  // }
 
-  function addToWishlist(id: number) {
-    if (!wishlist.find((item) => item.id === id)) {
-      setWishlist([...wishlist, { id, quantity: 1 }]);
-    }
-  }
+  // function addToWishlist(id: number) {
+  //   if (!wishlist.find((item:any) => item.id === id)) {
+  //     setWishlist([...wishlist, { id, quantity: 1 }]);
+  //   }
+  // }
 
-  function removeFromWishlist(id: number) {
-    setWishlist((currentWishlist) => currentWishlist.filter((item) => item.id !== id));
-  }
+  // function removeFromWishlist(id: number) {
+  //   setWishlist((currentWishlist) => currentWishlist.filter((item) => item.id !== id));
+  // }
 
   function openCart() {
     setIsCartOpen(true);
@@ -106,13 +106,7 @@ export function CartProvider({ children }: ProviderProps) {
     setIsCartOpen(false);
   }
 
-  function openWishlist() {
-    setIsWishlistOpen(true);
-  }
 
-  function closeWishlist() {
-    setIsWishlistOpen(false);
-  }
 
   return (
     <CartContext.Provider
@@ -121,20 +115,20 @@ export function CartProvider({ children }: ProviderProps) {
         increaseCartItemQuantity,
         decreaseCartItemQuantity,
         removeCartItem,
-        isWishlist,
-        addToWishlist,
-        removeFromWishlist,
+        // isWishlist,
+        // addToWishlist,
+        // removeFromWishlist,
         cartItems,
         cartQuantity,
         openCart,
         closeCart,
-        isWishlistOpen,
-        openWishlist,
-        closeWishlist,
+        // isWishlistOpen,
+        // openWishlist,
+        // closeWishlist,
       }}
     >
       {children}
-      <Cart isCartOpen= {false} />
+      <Cart />
       
     </CartContext.Provider>
   );

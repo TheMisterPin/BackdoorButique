@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from "react";
 
 type State = {
   width: number;
@@ -6,8 +6,8 @@ type State = {
 };
 
 type Action =
-  | { type: 'SET_WIDTH'; payload: number }
-  | { type: 'SET_ASPECT_RATIO'; payload: number };
+  | { type: "SET_WIDTH"; payload: number }
+  | { type: "SET_ASPECT_RATIO"; payload: number };
 
 const initialState: State = {
   width: window.innerWidth,
@@ -16,9 +16,9 @@ const initialState: State = {
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'SET_WIDTH':
+    case "SET_WIDTH":
       return { ...state, width: action.payload };
-    case 'SET_ASPECT_RATIO':
+    case "SET_ASPECT_RATIO":
       return { ...state, aspectRatio: action.payload };
     default:
       return state;
@@ -41,9 +41,10 @@ const useResponsive = () => {
     const updateWidthAndAspectRatio = () => {
       const width = window.innerWidth;
 
-      dispatch({ type: 'SET_WIDTH', payload: width });
+      dispatch({ type: "SET_WIDTH", payload: width });
 
       let aspectRatio;
+
       if (width >= breakpoints.xxl) {
         aspectRatio = 150;
       } else if (width >= breakpoints.xl) {
@@ -58,18 +59,18 @@ const useResponsive = () => {
         aspectRatio = 150;
       }
 
-      dispatch({ type: 'SET_ASPECT_RATIO', payload: aspectRatio });
+      dispatch({ type: "SET_ASPECT_RATIO", payload: aspectRatio });
     };
 
     updateWidthAndAspectRatio();
-    window.addEventListener('resize', updateWidthAndAspectRatio);
+    window.addEventListener("resize", updateWidthAndAspectRatio);
 
     return () => {
-      window.removeEventListener('resize', updateWidthAndAspectRatio);
+      window.removeEventListener("resize", updateWidthAndAspectRatio);
     };
-  }, []);  // <-- Make sure to include an empty dependency array here.
+  }, []); // <-- Make sure to include an empty dependency array here.
 
   return state;
 };
 
-export default useResponsive;  // <-- Make sure you're exporting it so you can use it in other components
+export default useResponsive; // <-- Make sure you're exporting it so you can use it in other components

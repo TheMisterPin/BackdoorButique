@@ -1,36 +1,32 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import "./form.css";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/";
 import { UserLoginData } from "../../data";
+import { UserContext } from "../../context";
 
 export function LoginForm() {
   const navigate = useNavigate();
+  const { loginHandler } = useContext(UserContext);
   const { register, handleSubmit } = useForm<UserLoginData>();
-  const { state, loginHandler } = useContext(UserContext);
 
   const onSubmit = (loginData: UserLoginData) => {
-    loginHandler(loginData.username, loginData.password);
-
-    if (state.isLogin) {
-      alert(`Login successful! Good to see you again ${loginData.username}`);
-      navigate('/');
-    } else {
-      alert("Invalid username or password");
-    }
+    loginHandler(loginData.username, loginData.password); 
   };
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit(onSubmit)} aria-label="Login form">
+      <form
+        className="form"
+        onSubmit={handleSubmit(onSubmit)}
+        aria-label="Login form"
+      >
         <h1 className="form-Header">Welcome Back!</h1>
         <p className="form-text">Please Login</p>
         <div className="form-body">
           <input
             className="form-input"
             type="text"
-            { ...register("username") }
+            {...register("username")}
             placeholder="Username"
             aria-label="Enter your username"
             required
@@ -38,12 +34,16 @@ export function LoginForm() {
           <input
             className="form-input"
             type="password"
-            { ...register("password") }
+            {...register("password")}
             placeholder="Password"
             aria-label="Enter your password"
             required
           />
-          <button className="form-button" type="submit" aria-label="Submit login form">
+          <button
+            className="form-button"
+            type="submit"
+            aria-label="Submit login form"
+          >
             Login
           </button>
         </div>

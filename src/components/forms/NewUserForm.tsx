@@ -1,48 +1,55 @@
+import React, { useState, useEffect } from "react";
 import "./form.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { User } from '../../data/';
-
-
-
-
+import { UserLoginData } from "../../data/";
 
 export function NewUserForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<User>();
-const Navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm<UserLoginData>();
+  const Navigate = useNavigate();
   
+  const [users, setUsers] = useState<UserLoginData[]>([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const createNewUser = (newUserData: User) => {
-    const existingUsers = JSON.parse(
-      localStorage.getItem("users.json") || "[]"
-    );
-    existingUsers.push(newUserData);
-    localStorage.setItem("users.json", JSON.stringify(existingUsers));
-Navigate("/");
-    alert("User created successfully!");
+  useEffect(() => {
+    // Get existing users
+    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    if (Array.isArray(existingUsers)) {
+      setUsers(existingUsers);
+    } else {
+      console.error("Corrupted data in localStorage: 'users' should be an array");
+    }
+    
+    // Check login status
+    const loginStatus = JSON.parse(localStorage.getItem("usersIn") || "false");
+    setIsLoggedIn(loginStatus);
+    
+    if (isLoggedIn) {
+      Navigate("/shop");
+    }
+  }, [isLoggedIn, Navigate]);
 
-  }
-
-  ;
+  const createNewUser = (newUserData: UserLoginData) => {
+    if (Array.isArray(users)) {
+      setUsers([...users, newUserData]);
+      localStorage.setItem("users", JSON.stringify([...users, newUserData]));
+      
+      // Set login status
+      setIsLoggedIn(true);
+      localStorage.setItem("isLoggedIn", "true");
+      
+      Navigate("/shop");
+      alert("User created successfully!");
+      console.log(newUserData);
+    } else {
+      console.error("Corrupted data: 'users' should be an array");
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(createNewUser)}>
-      <input type="text" {...register("username") } placeholder="User Name" />
-      <input type="text" {...register("email") } placeholder="Email" />
-      <input type="password" {...register("password") } placeholder="Password" />
-      <input type="text" {...register("firstName") } placeholder="First Name" />
-      <input type="text" {...register("lastName") } placeholder="Last Name" />
-      <input type="number" {...register("phone") } placeholder="Phone" />
-      <input type="text" {...register("address") } placeholder="Address" />
-      <input type="text" { ...register("city") } placeholder="City" />
-      <input type="text" { ...register("state") } placeholder="State" />
-      <input type="number" { ...register("zip") } placeholder="Zip" />
-      <input type="text" { ...register("country") } placeholder="Country" />
-
+      <input type="text" {...register("username")} placeholder="User Name" />
+      <input type="password" {...register("password")} placeholder="Password" />
       <input type="submit" value="Submit" />
     </form>
   );

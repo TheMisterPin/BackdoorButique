@@ -1,12 +1,10 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import bgImage from '../../assets/imgs/backgrounds/Background.jpg'
+import bgImage from "../../assets/imgs/backgrounds/Background.jpg";
 export const NavWrapper = styled.header`
   display: flex;
   align-items: end;
   justify-content: space-between;
-
-
 `;
 
 export const ButtonWrapper = styled.ul`
@@ -16,15 +14,13 @@ export const ButtonWrapper = styled.ul`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  font-size: 1.5rem;  
- 
+  font-size: 1.5rem;
 
-text-decoration: none;
-color: #513D32;
+  text-decoration: none;
+  color: #513d32;
   &.active {
-    color: #EEB246;
+    color: #eeb246;
     text-decoration: underline;
-  
   }
 `;
 
@@ -35,18 +31,17 @@ export const NavLinkWrapper = styled.div`
 `;
 
 export const Navbar = styled.nav`
-    position: sticky;
-    top: 0;
-    z-index: 1000; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-    padding: 10px;
-    box-shadow: 0 4px 6px -1px grey;
-    display:flex;
-    flex-direction: column;
-    box-shadow: 0 4px 6px 1px ;
-    background-image: url(${bgImage});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    
+  padding: 10px;
+  box-shadow: 0 4px 6px -1px grey;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px 1px;
+  background-image: url(${bgImage});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `;

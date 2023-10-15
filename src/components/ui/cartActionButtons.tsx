@@ -55,7 +55,7 @@ export const CartActionButtons: React.FC<CartActionButtonsProps> = ({ id }) => {
       {state.quantity === 0 && <AddToCartIcon onClick={ handleIncrement } />}
       {state.quantity === 1 && (
         <>
-          <FullCartIcon /> <button className="addmoreButton" onClick={handleIncrement}> Add More</button>
+          <FullCartIcon /> <button className="addmoreButton" onClick={ handleIncrement }> Add More</button>
         </>
       )}
       {state.quantity >= 2 && (

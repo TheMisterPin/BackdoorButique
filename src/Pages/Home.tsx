@@ -1,35 +1,21 @@
-import React, { useState } from 'react';
-import { ErrorModal } from '../components/Index';
-import { Container } from "react-bootstrap";
+import React, { useContext } from 'react';
+import { Link, Route } from 'react-router-dom';
+import { UserContext } from '../context';
+import { NewUserForm } from '../components';
 
 
-export function Home() {
-
-  const [showErrorModal, setShowErrorModal] = useState(false);
-  const [currentError, setCurrentError] = useState<string | null>(null);
-
-  const loadFromJson = () => {
-    // Mocking the behavior for loading from JSON.
-    // Implement the actual logic to load products from the local JSON file here.
-    console.log("Loading data from local JSON file...");
-  };
-
-  const triggerError = (errorType: string) => {
-    setCurrentError(errorType);
-    setShowErrorModal(true);
-  }
+export function Home () {
+  const { state } = useContext(UserContext);
+  
+  console.log('Is logged in:', state.isLogin); // Debugging line
 
   return (
-    <Container fluid className="base"> 
- <button onClick={() => triggerError("e408")}>Trigger Timeout Error</button>
-<button onClick={() => triggerError("e404")}>Trigger 404 Error</button>
-<button onClick={() => triggerError("Unknown Error")}>Trigger Unknown Error</button>
-      <ErrorModal 
-        show={showErrorModal} 
-        error={currentError} 
-        onHide={() => setShowErrorModal(false)} 
-        loadFromJson={loadFromJson} 
-      />
-    </Container>
-  )
-}
+    <div>
+      {state.isLogin ? (
+        <p>Hello, User</p>
+      ) : (
+        <Link to="/newuserform">Go to New User Form</Link>
+      )}
+    </div>
+  );
+};

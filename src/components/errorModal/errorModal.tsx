@@ -1,8 +1,8 @@
 // ErrorModal.tsx
-import React from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import { ErrorDescriptions } from './ErrorEnum';
+import React from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import { ErrorDescriptions } from "./ErrorEnum";
 
 interface ErrorModalProps {
   show: boolean;
@@ -11,10 +11,16 @@ interface ErrorModalProps {
   loadFromJson: () => void;
 }
 
-export const ErrorModal: React.FC<ErrorModalProps> = ({ show, error, onHide, loadFromJson }) => {
-    const errorDescription = ErrorDescriptions[error as keyof typeof ErrorDescriptions] || "Unknown Error";
+export const ErrorModal: React.FC<ErrorModalProps> = ({
+  show,
+  error,
+  onHide,
+  loadFromJson,
+}) => {
+  const errorDescription =
+    ErrorDescriptions[error as keyof typeof ErrorDescriptions] ||
+    "Unknown Error";
 
-  
   const handleJsonLoad = () => {
     loadFromJson();
     onHide();
@@ -25,14 +31,12 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({ show, error, onHide, loa
       <Modal.Header closeButton>
         <Modal.Title>{error}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        {errorDescription}
-      </Modal.Body>
+      <Modal.Body>{errorDescription}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onHide}>
           Close
         </Button>
-        {error === 'Timeout Error' && (
+        {error === "Timeout Error" && (
           <Button variant="primary" onClick={handleJsonLoad}>
             Load from JSON
           </Button>

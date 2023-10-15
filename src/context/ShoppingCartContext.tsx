@@ -50,12 +50,11 @@ export function CartProvider({ children }: ProviderProps) {
 
   function increaseCartItemQuantity(id: number) {
     setCartItems((currItems) => {
-      if (!currItems.find((item: any) => item.id === id)) {
-        console.log(cartItems);
-        return [...currItems, { id, quantity: 1 }];
+      if (!currItems.find((item: Product) => item.id === id)) {
+        return [ ...currItems,{ id, quantity: 1, price:0,}];
       }
 
-      return currItems.map((item:any) => {
+      return currItems.map((item) => {
         if (item.id === id) {
           console.log(cartItems);
           return { ...item, quantity: item.quantity + 1 };

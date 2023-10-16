@@ -35,6 +35,7 @@ import { ProductShopCard } from "..";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../Hooks/useFetch";
 import { Col, Row } from "react-bootstrap";
+import LoadingScreen from "../ui/LoadingScreen";
 
 export function CategoryProducts() {
   const { id } = useParams<{ id: string }>();
@@ -42,14 +43,15 @@ export function CategoryProducts() {
   const { data, loading, error } = useFetch<Product>(`/category/${id}`);
 
   return (
-    <div className="">
-      <h2 className="pageTitle">Products in category: {id}</h2>
-      {loading && <p>Loading...</p>}
+    <div className="category-container">
+       <h2 className="categoryHeader">Products in category: {id}</h2>
+      {loading && <LoadingScreen/>}
       {error && <p>Error: {error}</p>}
-      <Row xs={1} md={2} lg={6} xl={8} className="g-4">
+     
+      <Row xs={1} md={2} lg={5} xl={6} className="g-4">
         {data &&
           data.map((product: Product) => (
-            <Col key={ id }>
+            <Col className="productsRow" key={ id }>
               <ProductShopCard { ...product } />
             </Col>
           ))}

@@ -52,4 +52,5 @@ export const MinusIcon: React.FC<IconProps> = ({ onClick }) => <IconImgSmall onC
 export const UserIcon: React.FC<IconProps> = ({ onClick }) => <IconImg onClick={onClick} src="https://img.icons8.com/stickers/100/user.png" />
 export const CheckoutIcon: React.FC<IconProps> = ({ onClick }) => <IconImg onClick={onClick} src="https://img.icons8.com/stickers/100/cash-in-hand" />
 export const HomeIcon: React.FC<IconProps> = ({ onClick }) => <IconImg onClick={onClick} src="https://img.icons8.com/stickers/25/cottage.png" />
-
+export const AddToWishlistIcon: React.FC<IconProps> = ({ onClick }) => <IconImg onClick={onClick} src="https://img.icons8.com/stickers/100/love-letter.png" />
+export const RemoveFromWishlistIcon: React.FC<IconProps> = ({ onClick }) => <IconImg onClick={onClick} src="https://img.icons8.com/color/96/hearts.png" />

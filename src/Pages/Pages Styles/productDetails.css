@@ -1,0 +1,22 @@
+.base{align-items: center;
+justify-content: center;
+padding-top: 10%;}
+
+.productDetails{
+background-image: url('../../assets/imgs/backgrounds/loadingBG.png');
+width: 50vw ;
+padding-bottom: 15%;
+position:relative;
+padding: 2% 5%;
+}
+
+.description{position: absolute;
+top: 10%;
+right: 7%}
+
+.cardButtonCOntainer{
+    position: absolute;
+    left: 70%;
+    top: 80%;
+    
+}

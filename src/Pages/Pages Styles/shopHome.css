@@ -1,0 +1,7 @@
+.header-shop{
+min-height: 91vh;
+background-image: url("../../assets/imgs/backgrounds/AppBg.jpg");
+display: flex;
+justify-content: center;
+align-items: center;
+}

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./form.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserLoginData } from "../../data/";
 
 export function NewUserForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm<UserLoginData>();
+  const { register, handleSubmit, formState: { } } = useForm<UserLoginData>();
   const Navigate = useNavigate();
   
   const [users, setUsers] = useState<UserLoginData[]>([]);
@@ -48,7 +48,9 @@ export function NewUserForm() {
 
   return (
     <form onSubmit={handleSubmit(createNewUser)}>
-      <input type="text" {...register("username")} placeholder="User Name" />
+      <label className=""> Chooes a UserName</label>
+      <input type="text" {...register("username")} />
+      <label className=""> Choose a Password</label>
       <input type="password" {...register("password")} placeholder="Password" />
       <input type="submit" value="Submit" />
     </form>

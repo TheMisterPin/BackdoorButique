@@ -1,18 +1,22 @@
 form{
     display: flex;
     flex-direction: column;
-    width: 55%;
-    max-height: 65%;
-padding: 0 5% 5% 5%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 33%;
+  
+padding: 2rem;
+    border: 1px solid rgba(255, 255, 255,);
+     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.77);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(4.5px);
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(8px);
-
-
-overflow-y: scroll;}
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    gap: 4rem;
+    overflow-y: scroll;}
 
 form::-webkit-scrollbar{
     display: none;
@@ -20,25 +24,23 @@ form::-webkit-scrollbar{
 
 
 
-.form-Header{user-select: none;
+.form-Header{user-select: none;}
 
+.block{
+  font-size: xx-large;
+display: flex;
+flex-direction: row;
+width: 100%;
+height: 100%;
+justify-content: space-between;
 
 }
-.form-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5%;
-    
-    
-}
+.formBody{display: block;}
+
 .form button{
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px; background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size:12px;
-    font-weight: bold;
+font-size: x-large;
+padding: 5%
+
 }
 
     .form button:hover{
@@ -50,14 +52,40 @@ form::-webkit-scrollbar{
     }
 
 
-.form label {
-    margin-top: 10px;
-    color: #fff;font-size: 23px;
-    text-align: center;
-    user-select: none;
+
+
+@font-palette-values --text {
+    font-family: Rocher;
+    base-palette: 3;
+  }
+@font-palette-values --form {
+    font-family: Rocher;
+    base-palette: 1;
+  }
+  .form-Header{font-family: Rocher;
+font-palette: --form;
+font-size: 4.6rem;
+
 }
+  .form-subHeader{font-family: Rocher;
+font-palette: --form;
+font-size: 2.6rem;
 
-
+}
+  .form-br{font-family: Rocher;
+font-palette: --form;
+font-size: 3rem;
+width: 100%;
+text-align: center;
+margin-block: 4rem;
+}
+  .block{font-family: Rocher;
+font-palette: --text;
+font-size: 2.8rem;
+width: 100%;
+text-align: center;
+margin-bottom: 4rem;
+}
 .form input {
     margin-top: 0;
     margin-bottom: 30px;

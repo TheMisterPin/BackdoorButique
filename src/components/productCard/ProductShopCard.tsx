@@ -65,11 +65,11 @@ export function ProductShopCard({ id, title, image, price }: ProductCardProps) {
 
   return (
     <Card className="Card">
-      <div className="imageContainer" style={{ objectFit: "contain" }}>
+      <div className="imageContainer w-75" style={{ objectFit: "contain" }}>
         <Card.Img src={image} />
       </div>
       <Card.Body className="ProductCardBody">
-        <div className="ProductInfo">
+        <div className="ProductInfo ">
           <Card.Title>{titleHandler(title)}</Card.Title>
           <Card.Text>Price: {currencyFormat(price)}</Card.Text>
         </div>

@@ -16,18 +16,17 @@ width: 100%;
 
 
   .Card{
-    position: relative;
-    flex: 1;
     border: 1px solid #080C17;
     padding:7% 2%; 
     border-radius: 23px;
     overflow: hidden;
-    background-color: #dbc17c !important;
+    background-image: url('../../assets/imgs/backgrounds/cardBG2.png');
   margin-bottom: 7%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 6px -1px grey;
 }
 
 .Card:hover{
@@ -36,7 +35,7 @@ width: 100%;
 .ProductCardBody{
     display: flex;
     flex-wrap: wrap;
-    padding:0% 15%;
+    flex-direction: column;
      margin-bottom: 10px; /* Consistent spacing */
 }
 
@@ -55,7 +54,3 @@ display: flex;
 
 }
 
-.cardBody{
-    display: flex;
-    flex-direction: column;
-}

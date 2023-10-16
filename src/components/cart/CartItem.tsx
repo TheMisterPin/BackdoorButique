@@ -19,19 +19,15 @@ export function CartItem({
 
   return (
     <Card
-      style={{ width: 300, marginTop: 16 }}
+      style={{ width: 300, marginTop: 16, height: 200 }}
       actions={[
-        <button
-          className="btn btn-danger"
-          onClick={ () => removeCartItem(id) }
-          key="remove"
-        >
-          Remove
-        </button>,
+      
+       <img onClick={ () => removeCartItem(id) } width="50" height="50" src="https://img.icons8.com/plasticine/100/delete-forever.png" alt="delete-forever"/>
+     
       ]}
     >
       <Skeleton loading={isLoading} avatar active>
-        <Card.Meta
+        <Card.Meta style={{fontFamily:"Permanent Marker", fontSize: "1rem"}}
           avatar={<Avatar src={image || ""} />}
           title={`${title} (x${quantity})`}
           description={`${currencyFormat(price)} Total: ${currencyFormat(

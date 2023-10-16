@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import shopImg from '../assets/imgs/ShopHome.png';
 import './Pages Styles/home.css'
-import { FormHome } from '../components/forms/Form';
-export function Home() {
+import { NewUserForm } from '../components/forms/NewUserForm';
+
+
+
+export function NewUserFormHome() {
   return (
     <><div className="box overflow-hidden">
       <div className="layout">
          
        
-          <FormHome/> 
+          <NewUserForm/> 
        
       
 

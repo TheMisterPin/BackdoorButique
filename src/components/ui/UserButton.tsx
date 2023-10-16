@@ -1,7 +1,8 @@
-import React from 'react'
 
-export default function UserButton() {
+
+
+export function UserButton() {
   return (
-    <div>UserButton</div>
+<p>chanchito frito</p>
   )
 }

@@ -1,7 +1,10 @@
+import { useState } from 'react';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import { currencyFormat } from "../../Utils/currencyHandler";
 import { useCart, useProducts } from "../../context";
 import { StyledNavLink } from "../navbar/navbarStyles";
 import { CartItem } from "./CartItem";
+import { FullCartIcon } from '../../styles/styledIcons';
 
 export function Cart() {
   const { cartItems } = useCart();
@@ -12,10 +15,9 @@ export function Cart() {
   );
 
   return (
-    <div className="">
-      <div className="">
-        <h1>your cart</h1>
-
+    <div className="OffCanvasLayout">
+      <div >
+        <h1 className="pageTitle">Your Cart</h1>
         {cartItems.length > 0 ? (
           <>
             <div className="CartTotal">
@@ -31,7 +33,7 @@ export function Cart() {
                 }, 0)
               )}
             </div>
-            <ul>
+            <ul className='offCanvasList'>
               {cartProducts.map((item) => {
                 const correspondingCartItem = cartItems.find(
                   (cartItem) => cartItem.id === item.id
@@ -42,10 +44,10 @@ export function Cart() {
 
                 return (
                   <CartItem
-                    key={ item.id }
-                    { ...item }
-                    quantity={ quantity }
-                    isLoading={ loading }
+                    key={item.id}
+                    {...item}
+                    quantity={quantity}
+                    isLoading={loading}
                   />
                 );
               })}
@@ -53,7 +55,7 @@ export function Cart() {
           </>
         ) : (
           <>
-            <p>Cart is empty</p>
+            <p className='pageTitle'>Cart is empty</p>
             <StyledNavLink to="/shop">Shop</StyledNavLink>
           </>
         )}
@@ -61,3 +63,28 @@ export function Cart() {
     </div>
   );
 }
+
+export function OffCanvasCart() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <FullCartIcon onClick={handleShow}/>
+        
+      
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Your Cart</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Cart />
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
+}
+
+

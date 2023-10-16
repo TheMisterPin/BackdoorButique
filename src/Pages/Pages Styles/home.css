@@ -1,0 +1,64 @@
+.box{position: relative;}
+
+.layout {
+ 
+    height: 80vh;
+    width: 100vw;
+    background-image: url('../../assets/imgs/backgrounds/Background.jpg');
+    overflow-y: hidden;
+}
+
+.grass {
+    height: 20vh;
+    background-image: url('../../assets/imgs/backgrounds/grass.png');
+}
+
+
+
+.titleHome {
+
+display: none;
+}
+
+
+
+.shop {
+    position: absolute;
+    bottom: 5vh;
+    left: -7vw;
+    transition: transform 0.3s ease-in-out;
+    /* for smooth animation */
+    height: 75vh;
+
+}
+
+.shop:hover {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.tree {
+    position: absolute;
+    background-size: cover;
+    bottom: 10vh;
+    right: -4vh;
+    height: 90vh;
+    width: 120vh;
+    background-image: url('../../assets/imgs/tree.png');
+}
+
+
+

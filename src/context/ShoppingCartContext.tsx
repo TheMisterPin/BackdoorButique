@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
-import { Cart } from "../components";
+
 import { Product } from "../data/";
+
 
 type ProviderProps = { children: React.ReactNode };
 
@@ -12,12 +13,10 @@ export type CartContextType = {
   removeCartItem: (id: number) => void;
   cartQuantity: number;
   cartItems: Product[];
-  // isWishlist: (id: number) => boolean;
-  // addToWishlist: (id: number) => void;
-  // removeFromWishlist: (id: number) => void;
-  // isWishlistOpen: boolean;
-  // openWishlist: () => void;
-  // closeWishlist: () => void;
+  isWishlist: (id: number) => boolean;
+  addToWishlist: (id: number) => void;
+  removeFromWishlist: (id: number) => void;
+wishlist: Product[];
 
 };
 
@@ -82,37 +81,35 @@ export function CartProvider({ children }: ProviderProps) {
     );
   }
 
-  // function isWishlist(id: number) {
-  //   return !!wishlist.find((item) => item.id === id);
-  // }
+  function isWishlist(id: number) {
+    return !!wishlist.find((item) => item.id === id);
+  }
 
-  // function addToWishlist(id: number) {
-  //   if (!wishlist.find((item:any) => item.id === id)) {
-  //     setWishlist([...wishlist, { id, quantity: 1 }]);
-  //   }
-  // }
+  function addToWishlist(id: number) {
+    if (!wishlist.find((item:any) => item.id === id)) {
+      setWishlist([...wishlist, { id, quantity: 1, price:0 }]);
+    }
+  }
 
-  // function removeFromWishlist(id: number) {
-  //   setWishlist((currentWishlist) => currentWishlist.filter((item) => item.id !== id));
-  // }
-
+  function removeFromWishlist(id: number) {
+    setWishlist((currentWishlist) => currentWishlist.filter((item) => item.id !== id));
+  }
 
 
   return (
     <CartContext.Provider
       value={{
+        wishlist,
         getItemQuantity,
         increaseCartItemQuantity,
         decreaseCartItemQuantity,
         removeCartItem,
-        // isWishlist,
-        // addToWishlist,
-        // removeFromWishlist,
+        isWishlist,
+        addToWishlist,
+        removeFromWishlist,
         cartItems,
         cartQuantity,
-        // isWishlistOpen,
-        // openWishlist,
-        // closeWishlist,
+  
       }}
     >
       {children}

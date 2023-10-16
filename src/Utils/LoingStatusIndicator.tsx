@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../../context'; // adjust the import path
+import { UserContext } from '../context'; // adjust the import path
 
 const LoginStatusIndicator: React.FC = () => {
   const { state } = useContext(UserContext);

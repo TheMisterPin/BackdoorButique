@@ -1,0 +1,22 @@
+.background {
+  height: 90vh;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.square{
+  position:relative;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.details{text-decoration: none;
+font-family: 'Rocher';
+font-palette: --category;
+font-size: 3rem;
+top:25%;
+left:25%}
+

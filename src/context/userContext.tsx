@@ -1,6 +1,7 @@
-import React, { createContext, useCallback, useReducer, useMemo, useEffect, useState } from "react";
+import { createContext, useCallback, useReducer, useMemo, useEffect, useState } from "react";
 import { UserLoginData } from "../data";
 import { ProviderProps } from "../data/Types/PropsTypes";
+import { useNavigate,  } from 'react-router-dom';
 
 type LoginState = {
   isLogin: boolean;
@@ -39,6 +40,7 @@ export function UserProvider({ children }: ProviderProps) {
   }, []);
 
   const loginHandler = useCallback((username: string, password: string) => {
+    const Navigate = useNavigate();
     const isUserValid = users.some(
       (user: UserLoginData) => user.username === username && user.password === password
     );
@@ -49,6 +51,7 @@ export function UserProvider({ children }: ProviderProps) {
 
       // Store login status in local storage
       localStorage.setItem("isLoggedIn", "true");
+      Navigate("/shop");
 
       alert(`Login successful! Good to see you again ${username}`);
     } else {

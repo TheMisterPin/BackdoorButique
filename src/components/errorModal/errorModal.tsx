@@ -3,6 +3,9 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { ErrorDescriptions } from "./ErrorEnum";
+import { HomeIcon } from "../../styles/styledIcons";
+import { Link } from "react-router-dom";
+
 
 interface ErrorModalProps {
   show: boolean;
@@ -36,6 +39,7 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
         <Button variant="secondary" onClick={onHide}>
           Close
         </Button>
+  <Link to="/shop">      <HomeIcon/></Link>
         {error === "Timeout Error" && (
           <Button variant="primary" onClick={handleJsonLoad}>
             Load from JSON

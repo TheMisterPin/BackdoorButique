@@ -6,6 +6,7 @@ import { useApiTimer } from "../../Hooks/useApiTimer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner"; // <-- Added Spinner import
+import LoadingScreen from "../ui/LoadingScreen";
 
 export function Shop() {
   const { data: products, loading, error } = useFetch<Product>("/?limit=30");
@@ -23,23 +24,9 @@ export function Shop() {
 
   return (
     <>
-      <section style={{ marginTop: "2rem" } }>
+      <section className="" style={{ marginTop: "2rem" } }>
         {loading && (
-          <div style={{ textAlign: "center" } }>
-            <h1
-              className="pageTitle"
-              style={ { fontSize: "2rem", marginBottom: "1rem" } }
-            >
-              Getting you fantastic deals
-            </h1>
-            <Spinner
-              animation="border"
-              role="status"
-              style={ { width: "3rem", height: "3rem" } }
-            >
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          </div>
+          <LoadingScreen/>
         )}
 
         <Row xs={1} md={2} lg={6} xl={8} className="g-4">

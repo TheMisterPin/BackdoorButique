@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Product } from "../Types/ProductInterface";
 
-let totalSessionTime = 0; // Outside any component to maintain session state
+let totalSessionTime = 0; 
 
 const logTimeAndSession = (elapsedTime: any) => {
   console.log(`API call took ${elapsedTime} ms`);

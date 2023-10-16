@@ -1,5 +1,4 @@
 export { ProductShopCard } from "./productCard/ProductShopCard";
-export { LogoutForm } from "./forms/LogoutForm";
 export { ErrorModal } from "./errorModal/errorModal";
 export { NewUserForm } from "./forms/NewUserForm";
 export { LoginForm } from "./forms/LoginForm";

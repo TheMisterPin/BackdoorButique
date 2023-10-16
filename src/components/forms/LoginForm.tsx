@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { UserLoginData } from "../../data";
 import { UserContext } from "../../context";
 
 export function LoginForm() {
-  const navigate = useNavigate();
   const { loginHandler } = useContext(UserContext);
   const { register, handleSubmit } = useForm<UserLoginData>();
 

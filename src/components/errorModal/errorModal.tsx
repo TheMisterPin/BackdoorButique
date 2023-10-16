@@ -1,11 +1,9 @@
-// ErrorModal.tsx
-import React from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import { ErrorDescriptions } from "./ErrorEnum";
-import { HomeIcon } from "../../styles/styledIcons";
-import { Link } from "react-router-dom";
-
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import { ErrorDescriptions } from './ErrorEnum';
+import { HomeIcon } from '../../styles/styledIcons';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 interface ErrorModalProps {
   show: boolean;
@@ -22,7 +20,9 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
 }) => {
   const errorDescription =
     ErrorDescriptions[error as keyof typeof ErrorDescriptions] ||
-    "Unknown Error";
+    'Unknown Error';
+  
+  const navigate = useNavigate(); // Use the useNavigate hook
 
   const handleJsonLoad = () => {
     loadFromJson();
@@ -39,11 +39,17 @@ export const ErrorModal: React.FC<ErrorModalProps> = ({
         <Button variant="secondary" onClick={onHide}>
           Close
         </Button>
-  <Link to="/shop">      <HomeIcon/></Link>
-        {error === "Timeout Error" && (
-          <Button variant="primary" onClick={handleJsonLoad}>
-            Load from JSON
-          </Button>
+        <Link to="/shop">
+          <HomeIcon />
+        </Link>
+        {error === 'Timeout Error' && (
+          <HomeIcon
+            onClick={() => {
+              navigate('/'); // Navigate to home
+            }}
+          >
+            Go Back!
+          </HomeIcon>
         )}
       </Modal.Footer>
     </Modal>

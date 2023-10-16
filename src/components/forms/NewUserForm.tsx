@@ -12,7 +12,6 @@ export function NewUserForm() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Get existing users
     const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
     if (Array.isArray(existingUsers)) {
       setUsers(existingUsers);

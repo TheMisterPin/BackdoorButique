@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { currencyFormat } from "../../Utils/currencyHandler";
-import { useCart, useProducts } from "../../context";
+import { UserContext, useCart, useProducts } from "../../context";
 import { StyledNavLink } from "../navbar/navbarStyles";
 import { CartItem } from "./CartItem";
 import { FullCartIcon } from '../../styles/styledIcons';
@@ -9,7 +9,7 @@ import { FullCartIcon } from '../../styles/styledIcons';
 export function Cart() {
   const { cartItems } = useCart();
   const { products, loading } = useProducts();
-
+  
   const cartProducts = products.filter((product) =>
     cartItems.some((cartItem) => cartItem.id === product.id)
   );
@@ -53,10 +53,10 @@ export function Cart() {
               })}
             </ul>
           </>
-        ) : (
+        ) : ( 
           <>
-            <p className='pageTitle'>Cart is empty</p>
-            <StyledNavLink to="/shop">Shop</StyledNavLink>
+            <p className='offCanvas-error'>mmmh, seems like you cart is empty, how about we have a look at some product in our <StyledNavLink to="/shop">Shop</StyledNavLink>?</p>
+            
           </>
         )}
       </div>
@@ -75,11 +75,11 @@ export function OffCanvasCart() {
       <FullCartIcon onClick={handleShow}/>
         
       
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Your Cart</Offcanvas.Title>
+      <Offcanvas backdropClassName='offCanvas-background' show={show} onHide={handleClose}>
+        <Offcanvas.Header className='offCanvas-header' closeButton>
+          <Offcanvas.Title className ='cart-product-title'>Your Cart</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        <Offcanvas.Body className='cart product-list'>
           <Cart />
         </Offcanvas.Body>
       </Offcanvas>

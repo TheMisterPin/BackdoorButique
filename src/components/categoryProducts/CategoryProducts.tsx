@@ -1,35 +1,3 @@
-// import { useState, useEffect } from 'react';
-// import { fetchProductsByCategory } from "../../data/API/ApiCalls";
-// import { Product } from '../../data/Types/ProductInterface';
-// import { ProductShopCard } from '../Index';
-// import { useParams } from 'react-router-dom';
-// import data from '../../data/products.json';
-
-// export function CategoryProducts() {
-//   const { id } = useParams<{ id: string }>();
-//   const [products, setProducts] = useState<Product[] | null>(null);
-
-//   useEffect(() => {
-//     fetchProductsByCategory(id!)
-//       .then(data => setProducts(data))
-//       .catch(error => console.error('Error fetching products:', error));
-//   }, [id]);
-
-//   return (
-//     <div>
-//       <h2>Products in category: {id}</h2>
-//       <ul>
-//       {products &&
-//             products.map((product: Product) => (
-//               <li key={product.id}>
-//                 <ProductShopCard {...product} />
-//               </li>
-//             ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
 import { Product } from "../../data/Types/ProductInterface";
 import { ProductShopCard } from "..";
 import { useParams } from "react-router-dom";
@@ -43,15 +11,15 @@ export function CategoryProducts() {
   const { data, loading, error } = useFetch<Product>(`/category/${id}`);
 
   return (
-    <div className="category-container">
-       <h2 className="categoryHeader">Products in category: {id}</h2>
+    <div className="category container">
+       <h2 className="category header">Products in category: {id}</h2>
       {loading && <LoadingScreen/>}
       {error && <p>Error: {error}</p>}
      
-      <Row xs={1} md={2} lg={5} xl={6} className="g-4">
+      <Row xs={1} md={2} lg={2} xl={2} className="g-4">
         {data &&
           data.map((product: Product) => (
-            <Col className="productsRow" key={ id }>
+            <Col className="category product list" key={ id }>
               <ProductShopCard { ...product } />
             </Col>
           ))}

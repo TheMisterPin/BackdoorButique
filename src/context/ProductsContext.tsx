@@ -8,7 +8,7 @@ import { ErrorModal } from "../components";
 export const ProductsContext = createContext({} as ProductContextType);
 
 export const ProductsProvider = ({ children }: ProviderProps) => {
-  const { data: products, loading, error } = useFetch<Product>("/?limit=30");
+  const { data: products, loading, error } = useFetch<Product>("/?limit=18");
   const [showErrorModal, setShowErrorModal] = useState(false);
 
   const loadFromJson = () => {

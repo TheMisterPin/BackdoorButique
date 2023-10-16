@@ -2,36 +2,36 @@ import React from 'react';
 import { useCart } from '../../context/ShoppingCartContext';
 
 type WishlistIconProps = {
-  productId: number;
+  id: number;
 };
 
 export const AddToWishlistIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
-  <img onClick={onClick} src="https://img.icons8.com/stickers/100/love-letter.png" alt="Add to wishlist" />
+  <img onClick={onClick} src="https://img.icons8.com/office/40/like--v2.png" alt="Add to wishlist" />
 );
 
 export const RemoveFromWishlistIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
-  <img onClick={onClick} src="https://img.icons8.com/color/96/hearts.png" alt="Remove from wishlist" />
+  <img onClick={onClick} src="https://img.icons8.com/office/40/hearts.png" alt="Remove from wishlist" />
 );
 
-export const WishlistIcon: React.FC<WishlistIconProps> = ({ productId }) => {
+export const WishlistIcon: React.FC<WishlistIconProps> = ({ id }) => {
   const { isWishlist, addToWishlist, removeFromWishlist } = useCart();
 
-  const isInWishlist = isWishlist(productId);
+  const isInWishlist = isWishlist(id);
 
-  const handleClick = () => {
+  const toggleWishlist  = () => {
     if (isInWishlist) {
-      removeFromWishlist(productId);
+      removeFromWishlist(id);
     } else {
-      addToWishlist(productId);
+      addToWishlist(id);
     }
   };
 
   return (
     <>
       {isInWishlist ? (
-        <RemoveFromWishlistIcon onClick={handleClick} />
+        <RemoveFromWishlistIcon onClick={toggleWishlist} />
       ) : (
-        <AddToWishlistIcon onClick={handleClick} />
+        <AddToWishlistIcon onClick={toggleWishlist} />
       )}
     </>
   );

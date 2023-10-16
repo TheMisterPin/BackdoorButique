@@ -1,0 +1,31 @@
+.offCanvas-background {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .offCanvas-header {
+  display: none;
+  }
+  
+  .cart-product-title {
+    /* styles for the title */
+  }
+  
+  .product-list {
+    /* styles for the body */
+  }
+  
+  .CartTotal {
+    /* styles for the cart total */
+  }
+  
+  .pageTitle {
+    /* styles for the page title */
+  }
+  
+  .offCanvas-error {
+    /* styles for empty cart message */
+  }
+  
+  .offCanvasList {
+    /* styles for list of cart items */
+  }

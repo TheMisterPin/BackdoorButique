@@ -12,13 +12,13 @@ export function FormHome() {
           <div className="block">
           <label>Have an account?</label>
           <NavLink to="/loginform">
-            <button>Login</button>
+            <button className="loginButton">Login</button>
           </NavLink></div>
-          <label className="form-br">Or</label>
+          <label className="form-subHeader">Or</label>
           <div className="block">
-          <label>I Wanna Join!</label>
+          <label className="form-label">I Wanna Join!</label>
           <NavLink to="/newuserform">
-            <button>SignUp</button>
+            <button className="signUp-button">SignUp</button>
           </NavLink></div>
         </div>
       </form>

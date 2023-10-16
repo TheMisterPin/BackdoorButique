@@ -46,10 +46,10 @@ export function UserProvider({ children }: ProviderProps) {
     );
 
     if (isUserValid) {
-      // Update the login state
+
       dispatch({ type: "LOGIN_VALID" });
 
-      // Store login status in local storage
+    
       localStorage.setItem("isLoggedIn", "true");
       Navigate("/shop");
 

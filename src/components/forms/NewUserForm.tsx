@@ -32,8 +32,7 @@ export function NewUserForm() {
     if (Array.isArray(users)) {
       setUsers([...users, newUserData]);
       localStorage.setItem("users", JSON.stringify([...users, newUserData]));
-      
-      // Set login status
+
       setIsLoggedIn(true);
       localStorage.setItem("isLoggedIn", "true");
       
@@ -47,11 +46,11 @@ export function NewUserForm() {
 
   return (
     <form onSubmit={handleSubmit(createNewUser)}>
-      <label className=""> Chooes a UserName</label>
+      <label className="form-label"> Chooes a UserName</label>
       <input type="text" {...register("username")} />
-      <label className=""> Choose a Password</label>
+      <label className="form-label"> Choose a Password</label>
       <input type="password" {...register("password")} placeholder="Password" />
-      <input type="submit" value="Submit" />
+      <input className="form-submit-button" type="submit" value="Submit" />
     </form>
   );
 }

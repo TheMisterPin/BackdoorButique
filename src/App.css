@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .root{background-color: #DBC895;}
+
+
 @font-face {
   font-family: 'Rocher';
   src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
@@ -29,55 +31,3 @@
   base-palette:2;
 
 }
-* {box-sizing: border-box;}
-.App{
-  background-image: url('/src/assets/imgs/backgrounds/AppBg.jpg');
-  background-size: cover ;
-  min-height: 100vh;
-
-}
-.loading-screen{ background-image: url('/src/assets/imgs/backgrounds/loadingBG.png');
-  background-size: cover ;
-overflow-x: hidden;
-padding: 4%;}
-.grey{background-image: url('/src/assets/imgs/backgrounds/Background.jpg');
-flex-wrap: wrap;
-padding: 2rem !important;
-user-select: none;}
-
-.title{  font-family: Rocher;  
-  text-align: center;
-  font-size: clamp(1rem, 5vw, 4.6rem);
-  user-select: none; }
-
-.pageTitle{font-family: Rocher;
-  font-palette:  --header;
-  font-size: clamp(0.1rem, 75vw, 2.2rem);
-  user-select: none;
-}
-/* .shopBG{min-height: 86vh;
-align-content: center;
-padding-top: 6%;
-gap:3rem;
-justify-content: space-around;;} */
-
-.description{font-family:Rocher ;
-font-pallette: --text;}
-.price{font-family: Rocher;
-  font-palette:  --price;
-  font-size: 2rem;
-
-}
-@media (max-width: 768px) {
-  .hide-on-mobile {
-    display: none !important; 
-  }
-  .title{
-    width: 100vw;
-    font-size: clamp(1rem, 80vw, 2rem)
-  }
-  .ant-card {
-    margin: 0 auto 20px auto !important;
-}
-}
-

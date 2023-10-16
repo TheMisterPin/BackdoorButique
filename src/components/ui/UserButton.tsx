@@ -1,8 +1,13 @@
+import { UserContext } from "../../context"
 
+type UserButtonProps={
+  user : string 
 
+}
 
-export function UserButton() {
+export function UserButton(UseButtonProps) {
+  const { is}
   return (
-<p>chanchito frito</p>
+
   )
 }

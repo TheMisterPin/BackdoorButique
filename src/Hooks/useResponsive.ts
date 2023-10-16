@@ -68,9 +68,9 @@ const useResponsive = () => {
     return () => {
       window.removeEventListener("resize", updateWidthAndAspectRatio);
     };
-  }, []); // <-- Make sure to include an empty dependency array here.
+  }, []);
 
   return state;
 };
 
-export default useResponsive; // <-- Make sure you're exporting it so you can use it in other components
+export default useResponsive; 

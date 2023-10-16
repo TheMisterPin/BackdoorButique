@@ -5,7 +5,6 @@ import { useFetch } from "../../Hooks/useFetch";
 import { useApiTimer } from "../../Hooks/useApiTimer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner"; // <-- Added Spinner import
 import LoadingScreen from "../ui/LoadingScreen";
 
 export function Shop() {
@@ -24,12 +23,12 @@ export function Shop() {
 
   return (
     <>
-      <section className="" style={{ marginTop: "2rem" } }>
+      <section className="loading-screen" style={{ marginTop: "2rem" } }>
         {loading && (
           <LoadingScreen/>
         )}
 
-        <Row xs={1} md={2} lg={6} xl={8} className="g-4">
+        <Row xs={1} md={2} lg={5} xl={6} className="g-4 productShop-grid">
           {products.map((product, idx) => (
             <Col key={idx}>
               <ProductShopCard {...product} />

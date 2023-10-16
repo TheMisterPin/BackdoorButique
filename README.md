@@ -1,27 +1,48 @@
-# React + TypeScript + Vite
+# Backdoor Boutique
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Backdoor Boutique, an immersive shopping experience where web development meets creativity and passion.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Challenges & Solutions](#challenges--solutions)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-## Expanding the ESLint configuration
+## About the Project
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Backdoor Boutique is an online store offering a curated selection of products. We aim to provide users with an engaging and unique browsing experience.
 
-- Configure the top-level `parserOptions` property like this:
+![Backdoor Boutique Screenshot](screenshot.png)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Responsive Layout:** Designed with fluid grids to adapt to different screen sizes.
+- **Interactive UI:** Engaging hover effects with 3D shadows for product images.
+- **Product Details:** Detailed product views with a user review star rating system.
+- **Loading Animation:** Attractive animations while data loads.
+- **Cart Functionality:** Add products to your cart, view details, and manage selections effortlessly.
+- **Performance Monitoring:** API call duration tracking for an optimal user experience.
+
+## Tech Stack
+
+- **Frontend Framework:** React with TypeScript
+- **Routing:** React Router
+- **CSS Frameworks:** React-Bootstrap and Ant Design
+- **State Management:** React Context API
+- **Data Fetching:** Custom hooks using the Fetch API
+
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm (bundled with Node.js)
+
+### Installation
+

@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+
 import { Shop } from "../components/Index";
 
 export  function ShopPage() {
